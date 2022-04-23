@@ -22,6 +22,12 @@ body{
     font-size: 18px;
     margin-right: 20px;
 }
+.menu{
+    display: none;
+}
+button{
+    cursor: pointer;
+}
 header{
     display: flex;
     flex-direction: row;
@@ -65,7 +71,9 @@ footer .social{
     width: 72px;
     justify-content: space-between;
     margin-bottom: 25px;
-
+}
+.social img{
+    cursor: pointer;
 }
 .footer__logo{
     width: 100%;
@@ -81,6 +89,9 @@ footer .social{
 }
 .footer__navigation_item{
     margin-right: 22.5px;
+}
+.documents p{
+    cursor: pointer;
 }
 .right p{
     margin-top: -3px;
@@ -111,12 +122,9 @@ footer .social{
     display: flex;
     flex-direction: column;
 }
-/* /// desktop версия сломалась!!!! */
-/* // .block1__text растянулся на всю ширину */
 .block1{
     display: flex;
     flex-direction: row;
-    /* box-sizing: border-box; */
     justify-content: space-between;
     margin-top: 138px;
     position: relative;
@@ -129,7 +137,6 @@ footer .social{
     width: 570px;
 }
 .block1__text{
-    /* padding-right: 40px; */
     margin-right: 40px;
     position: relative;
     font-size: 64px;
@@ -142,9 +149,7 @@ footer .social{
     width: 575px;
 }
 .block1__text_content{
-    /* position: relative; */
     margin-top: -21px;
-    /* width: 575px; */
     letter-spacing: 3.5px;
 }
 .reverse{
@@ -153,24 +158,23 @@ footer .social{
 }
 .center{
     text-align: center;
-    
 }
 .block1__footer{
     position: absolute;
     display: flex;
-    /* height: 100%; */
     width: 100%;
     justify-content: space-between;
     align-items: flex-end;
     line-height: 100%;
     bottom: 0;
-    /* right: 10px; */
-    /* left: 0px; */
 }
 .block1__footer_social{
     width: 72px;
     display: flex;
     justify-content: space-between;
+}
+.block1__footer_social img{
+    cursor: pointer;
 }
 .tariffs{
     display: flex;
@@ -179,6 +183,7 @@ footer .social{
     line-height: 100%;
     font-weight: 700;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 .tariffs img{
     margin-left: 10px;
@@ -235,6 +240,9 @@ footer .social{
     width: 72px;
     display: flex;
     justify-content: space-between;
+}
+.arrow img{
+    cursor: pointer;
 }
 #arrow_left{
     transform: rotate(-180deg);
@@ -416,7 +424,6 @@ ul{
     transition: all 1s;
     transform: translateY(0%);
 }
-/* иконка гамбургера? */
 @media (max-width:1250px) {
     .container{
         width: 100%;
@@ -439,25 +446,9 @@ ul{
         padding-bottom: 0px;
         height: 35px;
     }
-    header:before{
-        content: '';
-        width: 14px;
-        height: 9px;
-        border-top: 2px solid rgb(255, 255, 255);
-        border-bottom: 2px solid rgb(255, 255, 255);
-        position: absolute;
-        bottom: 47px;
-        bottom: 10px;
-        right: 5px;
-    }
-    header:after{
-        content: '';
-        height: 2px;
-        width: 14px;
-        position: absolute;
-        bottom: 15.5px;
-        right: 5px;
-        background-color: #FFFFFF;
+    .menu{
+        display: block;
+        background-color: transparent;
     }
     .column{
         width: 335px;
