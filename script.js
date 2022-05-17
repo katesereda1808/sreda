@@ -112,15 +112,14 @@ addDots();
 let slides = document.getElementsByClassName("slide");
 
 function showSlides(n){
-  if (n > slides.length) {n = 0}    
-  if (n < 0) {n = slides.length}
-
+  if (n > slides.length-1) {n = 0}    
+  if (n < 0) {
+    n = slides.length-1;
+  }
   for (i = 0; i < slides.length; i++) {
     // slides[i].style.display = "none";
-
   slides[i].classList.remove('shown');
   slides[i].classList.add('hidden')
-  console.log('hide')
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" dot_active", "");
@@ -142,7 +141,7 @@ function findSlide() {
   console.log(slidesArr.indexOf(shown));
   return(slidesArr.indexOf(shown));
 }
-
+/////
 chevron_left.addEventListener('click', ()=>showSlides(findSlide()-1));
 chevron_right.addEventListener('click', ()=>showSlides(findSlide()+1));
 
