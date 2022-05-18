@@ -85,17 +85,15 @@ function onSubmit(e){
   };
 };
 
-let slideIndex = 0;
+// let slideIndex = 0;
 let slider_content = document.querySelector('.slider__content');
 
 let dot_container = document.querySelector('.dots');
 let dots = document.getElementsByClassName("dot");
-console.log(dots);
 
 function addDots() {
   dot_container.innerHTML = '';
   for (let i = 0; i < slider_content.children.length; i++) {
-    // console.log(slider_content.children);
     let div = document.createElement('div');
     div.className = 'dot';
     dot_container.appendChild(div);
@@ -117,23 +115,21 @@ function showSlides(n){
     n = slides.length-1;
   }
   for (i = 0; i < slides.length; i++) {
-    // slides[i].style.display = "none";
+    slides[i].style.display = "none";
   slides[i].classList.remove('shown');
-  slides[i].classList.add('hidden')
+  // slides[i].classList.add('hidden')
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" dot_active", "");
   }
-  // slides[n].style.display = "block";
-
-  slides[n].classList.remove('hidden');
+  slides[n].style.display = "block";
+  // slides[n].classList.remove('hidden');
   slides[n].classList.add('shown');
   dots[n].className += " dot_active";
 }
 
 let chevron_left = document.querySelector('#chevron_left')
 let chevron_right = document.querySelector('#chevron_right')
-console.log(chevron_left)
 
 function findSlide() {
   let shown = slider_content.querySelector('.shown');
@@ -141,34 +137,36 @@ function findSlide() {
   console.log(slidesArr.indexOf(shown));
   return(slidesArr.indexOf(shown));
 }
-/////
+
 chevron_left.addEventListener('click', ()=>showSlides(findSlide()-1));
 chevron_right.addEventListener('click', ()=>showSlides(findSlide()+1));
 
 // 900px
 
 let floor19 = document.querySelector('.floor19');
-console.log(floor19)
 let floor20 = document.querySelector('.floor20');
 
 function getWidth(){
   let width = document.documentElement.clientWidth;
   if(width<=900){
-    showSlides(slideIndex);
-
+    showSlides(0);
 
     let floor19 = document.querySelector('.floor19_mobile');
     let floor20 = document.querySelector('.floor20_mobile');
-    floor19.addEventListener('click', function() {
-      addASlide(slider_content, arr19);
+    floor19.addEventListener('click', (e)=>{
+      e.preventDefault();
+      changeSlidesSet(slider_content, arr19);
     });
-    floor20.addEventListener('click', function() {
-      addASlide(slider_content, arr20);
+    floor20.addEventListener('click', (e)=>{
+      e.preventDefault();
+      changeSlidesSet(slider_content, arr20);
     });
+    return 'mobile';
   } else {
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "block";
     }
+    return 'desktop';
   }
 };
 getWidth();
@@ -177,8 +175,7 @@ window.addEventListener('resize', getWidth);
 let arr19 = ['images/slider_1.jpg', 'images/slider_2.jpg', 'images/slider_3.jpg'];
 let arr20 = ['images/1132 (61).JPG', 'images/1132 (45).JPG', 'images/1132 (37).JPG', 'images/1132 (25).JPG', 'images/1132 (18).JPG', 'images/1132 (13).JPG', 'images/1132 (12).JPG'];
 
-
-function addASlide(place, arr) {
+function changeSlidesSet(place, arr) {
   place.innerHTML='';
   for (let i = 0; i < arr.length; i++) {
     place.innerHTML+=`
@@ -187,12 +184,17 @@ function addASlide(place, arr) {
     </div>`
   };
   addDots();
+  if(getWidth()=='mobile'){
+    showSlides(0);
+  }
 }
-floor19.addEventListener('click', function() {
-  addASlide(slider_content, arr19);
+floor19.addEventListener('click', (e)=>{
+  e.preventDefault();
+  changeSlidesSet(slider_content, arr19);
 });
-floor20.addEventListener('click', function() {
-  addASlide(slider_content, arr20);
+floor20.addEventListener('click', (e)=>{
+  e.preventDefault();
+  changeSlidesSet(slider_content, arr20);
 });
 
 let arrow_right = document.getElementById('arrow_right');
@@ -203,5 +205,11 @@ function scrollSlides(n) {
   slider_content.scrollLeft-=300;
 }
 
-arrow_right.addEventListener('click', ()=>scrollSlides(1));
-arrow_left.addEventListener('click', ()=>scrollSlides(-1));
+arrow_right.addEventListener('click', (e)=>{
+  e.preventDefault();
+  scrollSlides(1);
+});
+arrow_left.addEventListener('click', (e)=>{
+  e.preventDefault();
+  scrollSlides(-1);
+});
