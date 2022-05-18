@@ -318,7 +318,14 @@ footer .social{
 .services{
     width: 36.063vw;
 }
+
+
+
+
+
 .frames{
+    display: flex;
+    flex-direction: column;
     width: 32.500vw;
 }
 .frame{
@@ -339,6 +346,12 @@ footer .social{
     border-bottom: 2px solid #FFFFFF;
     border-top: 2px solid #FFFFFF;
 }
+
+
+
+
+
+
 ul{
     list-style: none;
 }

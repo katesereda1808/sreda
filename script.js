@@ -85,9 +85,7 @@ function onSubmit(e){
   };
 };
 
-// let slideIndex = 0;
 let slider_content = document.querySelector('.slider__content');
-
 let dot_container = document.querySelector('.dots');
 let dots = document.getElementsByClassName("dot");
 
@@ -116,32 +114,27 @@ function showSlides(n){
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
-  slides[i].classList.remove('shown');
-  // slides[i].classList.add('hidden')
+    slides[i].classList.remove('shown');
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" dot_active", "");
   }
   slides[n].style.display = "block";
-  // slides[n].classList.remove('hidden');
   slides[n].classList.add('shown');
   dots[n].className += " dot_active";
 }
 
-let chevron_left = document.querySelector('#chevron_left')
-let chevron_right = document.querySelector('#chevron_right')
+let chevron_left = document.querySelector('#chevron_left');
+let chevron_right = document.querySelector('#chevron_right');
 
 function findSlide() {
   let shown = slider_content.querySelector('.shown');
   slidesArr = Array.from(slides);
-  console.log(slidesArr.indexOf(shown));
   return(slidesArr.indexOf(shown));
 }
 
 chevron_left.addEventListener('click', ()=>showSlides(findSlide()-1));
 chevron_right.addEventListener('click', ()=>showSlides(findSlide()+1));
-
-// 900px
 
 let floor19 = document.querySelector('.floor19');
 let floor20 = document.querySelector('.floor20');
@@ -212,4 +205,46 @@ arrow_right.addEventListener('click', (e)=>{
 arrow_left.addEventListener('click', (e)=>{
   e.preventDefault();
   scrollSlides(-1);
+});
+
+let frames = document.querySelector('.frames');
+let goUp = document.querySelector('.up');
+let goDown = document.querySelector('.down');
+
+let framesContent = [
+  '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>','<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу','<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽'
+]
+function renderFrames(arr){
+  frames.innerHTML = '';
+  for (let i = 0; i < arr.length; i++) {
+    let frame = document.createElement('div');
+    frame.innerHTML = arr[i]
+    if(i==1){
+      frame.className = 'frame underline'
+    } else {
+      frame.className = 'frame'
+    }
+    frames.appendChild(frame)
+  }
+
+};
+
+function scrollFrames(direction, arr){
+  if(direction=='up'){
+    [arr[0], arr[1], arr[2]]=[arr[2], arr[0], arr[1]];
+  } else {
+    [arr[0], arr[1], arr[2]]=[arr[1], arr[2], arr[0]];
+  }
+  return arr;
+};
+
+renderFrames(framesContent);
+
+goUp.addEventListener('click',(e)=>{
+  e.preventDefault();
+  renderFrames(scrollFrames('up', framesContent))
+});
+goDown.addEventListener('click',(e)=>{
+  e.preventDefault();
+  renderFrames(scrollFrames('down', framesContent))
 });
