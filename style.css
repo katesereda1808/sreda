@@ -528,12 +528,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     display: none;
 }
 
-/* @media (max-width:1250px) { */
-    @media (max-width:900px) {
+@media (max-width:900px) {
     .container{
         width: 100%;
         overflow: hidden;
-        /* max-width: 900px; */
         min-width: 200px;
         margin: 70px 20px 10px 20px;
     }
@@ -728,8 +726,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .chevrons{
         display: block;
-        /* position: absolute;
-        top: 60%; */
     }
     .chevrons .chevron{
         display: block;
