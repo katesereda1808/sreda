@@ -318,11 +318,6 @@ footer .social{
 .services{
     width: 36.063vw;
 }
-
-
-
-
-
 .frames{
     display: flex;
     flex-direction: column;
@@ -346,12 +341,6 @@ footer .social{
     border-bottom: 2px solid #FFFFFF;
     border-top: 2px solid #FFFFFF;
 }
-
-
-
-
-
-
 ul{
     list-style: none;
 }
@@ -605,6 +594,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .text1{
         width: 320px;
+        width: 85.33vw;
         color: rgb(255, 255, 255);
         margin-bottom: 32px;
         margin-left: 0;
@@ -668,7 +658,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .slider__content{
         display: flex;
         justify-content: center;
-
         height: 250px;
         height: 66.667vw;
         width: 286px;
@@ -689,10 +678,14 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         display: none;
         padding-top: 29px;
         padding-bottom: 31px;
+        height: 260px;
     }
     .frame:first-child {
         display: block;
         color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .frame__title{
         margin-bottom: 20px;
@@ -764,10 +757,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         font-size: 36px;
     }
     .block5__text{
-        width: 100%;
         margin-top: 27px;
         margin-bottom: 0px;
-        width: 326px;
+        width: 86.93vw;
     }
     .block5 .title {
         margin-bottom: 31px;

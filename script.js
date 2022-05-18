@@ -117,11 +117,11 @@ function showSlides(n){
     slides[i].classList.remove('shown');
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" dot_active", "");
+    dots[i].classList.remove('dot_active');
   }
   slides[n].style.display = "block";
   slides[n].classList.add('shown');
-  dots[n].className += " dot_active";
+  dots[n].classList.add('dot_active')
 }
 
 let chevron_left = document.querySelector('#chevron_left');
@@ -218,13 +218,13 @@ function renderFrames(arr){
   frames.innerHTML = '';
   for (let i = 0; i < arr.length; i++) {
     let frame = document.createElement('div');
-    frame.innerHTML = arr[i]
+    frame.innerHTML = arr[i];
     if(i==1){
-      frame.className = 'frame underline'
+      frame.className = 'frame underline';
     } else {
-      frame.className = 'frame'
+      frame.className = 'frame';
     }
-    frames.appendChild(frame)
+    frames.appendChild(frame);
   }
 
 };
