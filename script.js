@@ -124,8 +124,8 @@ function showSlides(n){
   dots[n].classList.add('dot_active')
 }
 
-let chevron_left = document.querySelector('#chevron_left');
-let chevron_right = document.querySelector('#chevron_right');
+let chevron_left = document.querySelector('.direction_left');
+let chevron_right = document.querySelector('.direction_right');
 
 function findSlide() {
   let shown = slider_content.querySelector('.shown');
