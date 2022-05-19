@@ -239,7 +239,7 @@ footer .social{
     margin-bottom: 24px;
 }
 .chevrons{
-    display: none;
+    /* display: none; */
 }
 .arrows{
     width: 72px;
@@ -521,7 +521,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .container{
         width: 100%;
         overflow: hidden;
-        min-width: 200px;
+        min-width: 300px;
         margin: 70px 20px 10px 20px;
     }
     .block1__content, .block1, .block3__content, .block4__content, .block5__content, .footer__content{
@@ -655,12 +655,25 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .block3{
         margin-top: 65px;
     }
+    /* .slider__main{
+        height: 66.667vw;
+        max-height: 400px;
+        width: 76.267vw;
+        overflow: hidden;
+        position: relative;
+
+    } */
     .slider__content{
         display: flex;
         justify-content: center;
-        height: 250px;
         height: 66.667vw;
-        width: 286px;
+        max-height: 400px;
+        min-height: 210px;
+        width: 76.267vw;
+        overflow: hidden;
+        position: relative;
+        height: 66.667vw;
+        max-height: 400px;
         width: 76.267vw;
         overflow: hidden;
         position: relative;
@@ -708,6 +721,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         width: 12px;
         height: 7px;
         display: block;
+        cursor: pointer;
     }
     .chevron:hover{
         background: url(./images/chevron_hover.svg);
@@ -723,18 +737,18 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .chevrons .chevron{
         display: block;
         position: absolute;
-        top: 50%;
+        top: 60%;
         z-index: 2;
         width: 30px;
-         height: 30px;
+        height: 30px;
     }
-    .chevrons .chevron::before{
+    /* .chevrons .chevron::before{
         content: '';
         width: 50px;
         height: 200px;
         z-index: 1;
         display: block;
-    }
+    } */
     #chevron_left{
         left: 0;
         transform: rotate(90deg);
