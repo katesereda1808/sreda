@@ -726,7 +726,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         height: 75%;
         background-color: #08080871;
         position: absolute;
-        top: 100px;
+        top: 80px;
         z-index: 1;
         opacity: 0;
     }
