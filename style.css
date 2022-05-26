@@ -8,6 +8,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 18px;
 }
 .container{
     margin: 59px 200px;
@@ -27,7 +28,7 @@ a:hover, button:hover, label:hover{
 }
 .phone{
     color: #A1A1A1;
-    font-size: 18px;
+    /* font-size: 18px; */
     margin-right: 20px;
 }
 input[type=number]::-webkit-outer-spin-button,
@@ -59,7 +60,7 @@ header{
     flex-direction: row;
     margin-left: 26px;
     letter-spacing: 1.5px;
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight: 700;
 }
 a{
@@ -77,7 +78,7 @@ footer{
     line-height: 200%;
     border-top: 2px solid #9B9B9B;
     padding-top: 20px;
-    font-size: 18px;
+    /* font-size: 18px; */
     line-height: 260%;
 }
 .footer__content{
@@ -145,12 +146,14 @@ footer .social{
 .buildings{
     width: 35.625vw;
 }
-.block1__text{
-    margin-right: 40px;
-    position: relative;
+.page_heading{
     font-size: 4vw;
     font-weight: 600;
     line-height: 192%;
+}
+.block1__text{
+    margin-right: 40px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -193,7 +196,7 @@ footer .social{
 .text1{
     display: block;
     width: 23.125vw;
-    font-size: 18px;
+    /* font-size: 18px; */
     margin-left: 4px;
     margin-bottom: 49px;
     color: #A1A1A1;
@@ -211,7 +214,7 @@ footer .social{
     margin-top: 200px;
 }
 .text2__content{
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight: 400;
     margin-bottom: 20px;
     color: #FFFFFF;
@@ -271,7 +274,7 @@ footer .social{
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #FFFFFF;
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight: 700;
     padding-bottom: 5px;
     margin-bottom: 21.5px;
@@ -326,7 +329,7 @@ footer .social{
     width: 32.500vw;
 }
 .frame{
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight: 400;
     color: #A1A1A1;
     padding-bottom: 22px;
@@ -363,7 +366,6 @@ ul{
 .block5{
     margin-top: 173px;
 }
-
 .block5__column{
     display: flex;
     flex-direction: column;
@@ -375,7 +377,7 @@ ul{
 .block5__text{
     width: 34.188vw;
     margin-bottom: 35px;
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 .block5 .title{
     margin-bottom: 47px;
@@ -384,12 +386,31 @@ ul{
     display: flex;
     justify-content: space-between;
 }
+input{
+    font-family: 'Raleway', sans-serif;
+}
 .block5_input{
     border-bottom: 1px solid #9B9B9B;
     display: flex;
     justify-content: space-between;
     margin-bottom: 23px;
     position: relative;
+}
+.input_chevron{
+    position: absolute;
+    bottom: 18px;
+    right: 0;
+    height: 7px;
+}
+.date input::-webkit-calendar-picker-indicator{
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+}
+.time input::-webkit-calendar-picker-indicator{
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
 }
 .block5_input input::placeholder{
     color: #FFFFFF;
@@ -404,6 +425,17 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     background-color: transparent;
     font-size: 18px;
     height: 49px;
+    width: 100%;
+}
+.date_and_time{
+    display: flex;
+    flex-direction: row;
+}
+.date{
+    margin-right: 40px;
+    width: 100%;
+}
+.time{
     width: 100%;
 }
 .invalid{
@@ -518,6 +550,168 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .chevron{
     display: none;
 }
+/* tariffs */
+.heading{
+    width: 100%;
+    /* font-size: 48px; */
+}
+.tariffs_block1, .tariffs_block3, .booking_block1_row, .booking_block3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.tariffs_block1{
+    margin-top: 114px;
+}
+.tariffs_block1 .heading{
+    margin-bottom: 23px;
+}
+.tariffs_block1 img{
+    width: 100%;
+    max-width: 570px;
+}
+.tariffs_block1 .column{
+    display: flex;
+    flex-direction: column;
+    /* height: 426px; */
+    justify-content: space-between;
+    
+}
+.tariffs_block2{
+    margin-top: 100px;
+}
+.tariffs_slider_menu{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #9B9B9B;
+    padding-bottom: 22px;
+    margin-bottom: 48px;
+}
+.tariffs_slider_menu_mobile{
+    display: none;
+}
+.tariffs_slider_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70.5vw;
+}
+.tariffs_slider_menu_item{
+    margin-right: 81px;
+}
+.tariffs_slider_body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tariffs_slide{
+    /* width: 498px; */
+    width: 31.125vw;
+}
+.tariffs_slide img{
+    width: 31.125vw;
+}
+.book_btn{
+    display: flex;
+    flex-direction: row;
+    margin-top: 36px;
+}
+.tariffs_slide_ul, .booking_block1_ul{
+    list-style: disc;
+    margin-left: 27px;
+}
+/* .indicator{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+} */
+.tariffs_slider_indicator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+    width: 40px;
+}
+.tariffs_slider_dots{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 24.5px;
+    margin-bottom: 10.5px;
+    /* margin-left: 10px; */
+    margin-right: 5px;
+    display: flex;
+}
+.tariffs_slider_dot{
+    width: 14px;
+    height: 14px;
+    background-color: #3D3D3D;
+    margin-bottom: 14px;
+}
+.tariffs_slider_toTheLeft{
+    transform: rotate(180deg);
+}
+.tariffs_slider_dot_active{
+    background-color: #FFFFFF;
+}
+.excurssions_btn{
+    display: flex;
+    flex-direction: row;
+}
+.tariffs_block3{
+    margin-top: 200px;
+}
+.tariffs_block3 .heading{
+    margin-bottom: 48px;
+    font-size: 48px;
+}
+.tariffs_block3_text{
+    margin-bottom: 21px;
+}
+.tariffs_form_image, .booking_form_image{
+    width: 100%;
+    /* height: 426px; */
+    /* max-width: 570px; */
+}
+.tariffs_form_image{
+    margin-top: 36px;
+}
+.price{
+    font-size: 24px;
+    margin-top: 24px;
+}
+.tariffs_slide_heading{
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 31px;
+    margin-bottom: 25px;
+}
+/* //booking */
+.booking_block1{
+    margin-top: 138px;
+}
+.booking_block1_img{
+    width: 100%;
+}
+.booking_block1_text{
+    margin-top: 47px;
+}
+.booking_block1_ul{
+    margin-top: 21px;
+    margin-bottom: 25px;
+}
+.booking_block3_text p{
+    margin-bottom: 21px;
+}
+.booking_form_image{
+    margin-top: 15px;
+}
+.bold{
+    font-weight: 700;
+}
 
 @media (max-width:900px) {
     .container{
@@ -560,9 +754,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .block1{
         margin-top: 40px;
     }
-    .block1__text{
+    .page_heading{
+        width: 100%;
         font-size: 39px;
     }
+    /* .block1__text{
+        font-size: 39px;
+    } */
     .block1__text_content{
         width: 100%;
         letter-spacing: 1px;
@@ -570,7 +768,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         line-height: 195%;
     }
     .block1__text{
-        width: 100%;
+        /* width: 100%; */
         padding-right: 0;
     }
     .block1__footer{
@@ -617,7 +815,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .floors_mobile{
         display: block;
-        font-size: 18px;
+        /* font-size: 18px; */
         font-weight: 700;
         letter-spacing: 0.5px;
         position: relative;
@@ -905,7 +1103,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         justify-content: space-between;
     }
     .nav_mobile .contacts_mobile p{
-        font-size: 18px;
+        /* font-size: 18px; */
         margin-bottom: 27px;
         text-align: center;
     }
@@ -916,11 +1114,123 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         display: flex;
         align-items: center;
         justify-content: center;
-
-        font-size: 18px;
+        /* font-size: 18px; */
         height: 65.5px;
     }
     .burger-close{
         background-color: transparent;
     }
+    /* // tariffs-mobile */
+    .tariffs_block1_img_colomn{
+        overflow: hidden;
+        order: -1;
+        /* height: 500px; */
+        /* height: 84.267vw;
+        height: 700px; */
+        /* height: 100%; */
+    }
+    .tariffs_block1_img_collapse, .booking_form_image{
+        display: none;
+    }
+    .tariffs_block1_img1{
+        /* height: 250%; */
+        /* height: 84.267vw;
+        max-width: unset; */
+        /* width: 100%; */
+        /* position: absolute;
+        top: 0; */
+    }
+    .tariffs_block1 img{
+        max-width: unset;
+        /* height: 84.267vw;
+        height: 316px; */
+    }
+    .tariffs_block1{
+        margin-top: 54px;
+        overflow: hidden;
+    }
+    .tariffs_block1 .heading{
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    /* .tariffs_block1 .column{
+        height: 100%;
+    } */
+    .excurssions_btn{
+        margin-top: 30px;
+    }
+    .tariffs_block1 .block1__footer_social{
+        margin-top: 31px;
+    }
+
+    .tariffs_slider_body{
+        flex-direction: column;
+        /* height: 300px;
+        overflow: hidden; */
+    }
+    .tariffs_slider_menu_mobile{
+        display: block;
+        padding-bottom: 31px;
+        margin-bottom: 31px;
+        border-bottom: 2px solid #9B9B9B;
+    }
+    .tariffs_slider_menu{
+        display: none;
+    }
+    .tariffs_slider_indicator{
+        flex-direction: row;
+        width: auto;
+        /* align-items: center; */
+    }
+    .tariffs_slider_dots{
+        flex-direction: row;
+    }
+    .tariffs_slider_indicator .arrow{
+        display: none;
+    }
+    .tariffs_slider_dot{
+        margin-right: 10px;
+        width: 10px;
+        height: 10px;
+    }
+    /* ///// */
+    /* .tariffs_slider_content:nth-child(1){
+        display: none;
+    } */
+    .tariffs_slider_content{
+        height: 620px;
+        overflow: hidden;
+        width: auto;
+    }
+    .tariffs_slider_content:first-child{
+        display: block;
+    }
+    .tariffs_slide{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .tariffs_slide img{
+        width: 100%;
+    }
+    .tariffs_block3{
+        margin-top: 78px;
+    }
+    .tariffs_block3_column1{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .tariffs_form_image{
+        margin-top: 0px;
+        margin-bottom: 40px;
+    }
+    .tariffs_block3 .title{
+        margin-bottom: 32px;
+    }
+    .tariffs_block3 .form{
+        margin-top: 26px;
+    }
+    .tariffs_block3 .form_button{
+        margin-top: 63px;
+    }
+
 }

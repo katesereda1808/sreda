@@ -121,7 +121,7 @@ function showSlides(n){
   }
   slides[n].style.display = "block";
   slides[n].classList.add('shown');
-  dots[n].classList.add('dot_active')
+  dots[n].classList.add('dot_active');
 }
 
 let chevron_left = document.querySelector('.direction_left');
@@ -226,7 +226,6 @@ function renderFrames(arr){
     }
     frames.appendChild(frame);
   }
-
 };
 
 function scrollFrames(direction, arr){

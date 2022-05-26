@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div><img src="./images/logo.svg"></div>
+            <nav>
+                <ul class="navbar">
+                    <li class="navbar__item">
+                        <a href="#tariffs">Тарифы</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#news">Новости</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#contacts">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="menu">
+                <a href="#menu">
+                    <img src="./images/menu.svg"/>
+                </a>
+            </button>
+            <nav class="nav_mobile  hidden">
+                <button class="burger-close">
+                    <img src="./images/cross.svg" alt="close">
+                </button>
+                <div class="nav_mobile_content">
+                    <ul >
+                        <li class="navbar__item_mobile underline">
+                            <a href="#main">Главная</a>
+                        </li>
+                        <li class="navbar__item_mobile underline">
+                            <a href="#tariffs">Тарифы</a>
+                        </li>
+                        <li class="navbar__item_mobile underline">
+                            <a href="#news">Новости</a>
+                        </li>
+                        <li class="navbar__item_mobile">
+                            <a href="#contacts">Контакты</a>
+                        </li>
+                    </ul>
+                    <div class="social_mobile">
+                            <a href="https://www.vk.ru/" class="vk">
+                            </a>
+                            <a href="https://zen.yandex.ru/" class="yandex">
+                            </a>
+                            <a href="https://www.youtube.ru/" class="youtube">
+                            </a>
+                    </div>
+                    <div class="contacts_mobile">
+                        <p>+7 (495) 118-39-37
+                        </p>
+                        <p>hello@sreda.co</p>
+                    </div>
+                </div>
+            </nav>
+            <div class="phone">
+                +7 495 118 39 37
+            </div>
+        </header>
+        <div class="content">
+            <div class="block tariffs_block1">
+                <div class="page_heading heading">Тарифы SREDA</div>
+                <div class="column tariffs_block1_img_colomn">
+                    <img class="tariffs_block1_img1" src="./images/tariffs1.jpg">
+
+                </div>
+                <div class="column">
+                    <p class="tariffs_block1_text">
+                        Мы предоставляем большой выбор тарифов на посещение опен-спейс мест и аренду отдельных офисов на 19 и 20 этажах башни Федерация-Восток.
+                    </p>
+                    <a class="excurssions_btn" href="#excursions">
+                        Записаться на экскурсию
+                        <div class="arrow"></div>
+                    </a>
+                    <div class="block1__footer_social">
+                        <a href="https://www.vk.ru/" class="vk">
+                        </a>
+                        <a href="https://zen.yandex.ru/" class="yandex">
+                        </a>
+                        <a href="https://www.youtube.ru/" class="youtube">
+                        </a>
+                    </div>
+                    <img class="tariffs_block1_img_collapse" src="./images/tariffs2.jpg">
+
+                </div>
+                
+
+            </div>
+            <div class="block tariffs_block2">
+                <div class="tariffs_slider">
+                    <div class="tariffs_slider_menu">
+                        <a href="#19">
+                            <div class="tariffs_slider_menu_item coworking_19">
+                                Коворкинг 19 этаж
+                                   
+                            </div>
+                        </a>
+                        <a href="#20">
+                            <div class="tariffs_slider_menu_item offices_19">
+                                Офисы 19 этаж
+                            </div> 
+                        </a>
+                        <a href="#20">
+                            <div class="tariffs_slider_menu_item offices_20">
+                                Офисы 20 этаж
+                            </div> 
+                        </a>
+                     
+                    </div>
+                    <div class="tariffs_slider_menu_mobile">
+                        <details class="accordeon__item">
+                                <summary class="accordeon__title">
+                                    <a href="#19">
+                                        <div class="tariffs_slider_menu_item coworking_19">
+                                            Коворкинг 19 этаж
+                                               
+                                        </div>
+                                    </a>
+                                    
+                                    <div class="chevron"></div>
+                                </summary>
+                                <div class="collapse-content">
+                                    <a href="#20">
+                                        <div class="tariffs_slider_menu_item offices_19">
+                                            Офисы 19 этаж
+                                        </div> 
+                                    </a>
+                                </div>
+                                <div class="collapse-content">
+                                    <a href="#20">
+                                        <div class="tariffs_slider_menu_item offices_20">
+                                            Офисы 20 этаж
+                                        </div> 
+                                    </a>
+                                </div>
+                            </details>
+
+                    </div>
+                    <div class="tariffs_slider_body">
+                        <div class="tariffs_slider_content">
+                            <div class="tariffs_slide">
+                                <img src="./images/tariffs_slider1.jpg" alt="">
+                                <p class="tariffs_slide_heading">
+                                    Разовое посещение
+                                </p>
+                                <div class="tariffs_slide_text">
+                                    <ul class="tariffs_slide_ul">
+                                        <li>Незакрепленное рабочее место;</li>
+                                        <li>Скоростной безлимитный интернет;</li>
+                                        <li>Монохромный принтер формата А4, сканер, копир;</li>
+                                        <li>Чай, кофе, вода;</li>
+                                        <li>Клиентское сопровождение.</li>
+                                    </ul>
+                                    <p class="price">2500 ₽</p>
+                                    
+                                </div>
+                                
+                                <a href="#booking">
+                                    <div class="book_btn">
+                                        Забронировать
+                                        <div class="arrow"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="tariffs_slide">
+                                <img src="./images/tariffs_slider2.jpg" alt="">
+                                <p class="tariffs_slide_heading">
+                                    10 посещений / мес
+                                </p>
+                                <div class="tariffs_slide_text">
+                                    <ul class="tariffs_slide_ul">
+                                        <li>Незакрепленное рабочее место;</li>
+                                        <li>Скоростной безлимитный интернет;</li>
+                                        <li>Монохромный принтер формата А4, сканер, копир;</li>
+                                        <li>Чай, кофе, вода;</li>
+                                        <li>Клиентское сопровождение.</li>
+                                        <li>1 гостевой визит в неделю</li>
+                                    </ul>
+                                    <p class="price">15 000 ₽</p>
+
+                                </div>
+                                
+                                <a href="#booking">
+                                    <div class="book_btn">
+                                        Забронировать
+                                        <div class="arrow"></div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="tariffs_slider_indicator">
+                            <div class="arrow tariffs_slider_toTheRight"></div>
+                            <div class="tariffs_slider_dots">
+                                <div class="tariffs_slider_dot"></div>
+                                <div class="tariffs_slider_dot"></div>
+                                <div class="tariffs_slider_dot"></div>
+                                <div class="tariffs_slider_dot"></div>
+                                <div class="tariffs_slider_dot"></div>
+                            </div>
+                            <div class="arrow tariffs_slider_toTheLeft"></div>
+                        </div>
+                    </div>
+
+                </div>
+                
+
+            </div>
+            <div class="block tariffs_block3">
+                <div class="title heading">
+                    Экскурсия
+                </div>
+                <div class="column tariffs_block3_column1">
+                    <div>
+                        <p class="tariffs_block3_text">Мы приглашаем Вас увидеть БОЛЬШЕ своими глазами — запишитесь на экскурсию прямо сейчас!</p>
+                        <p class="tariffs_block3_text">Заполните форму, и мы свяжемся с Вами в ближайшее время!</p>
+                    </div>
+                    <div>
+                        <img class ="tariffs_form_image" src="./images/tariffs3.jpg">
+                    </div>
+                    
+                 
+
+                </div>
+                <div class="column">
+                    <form  class="form">
+                        <div class="block5_input">
+                            <input name="name" type="text" placeholder="Имя  *" >
+                            <img class="input_arrow" src="./images/arrow.svg">
+                        </div>
+                        <div class="block5_input">
+                            <input name="number" type="number" placeholder="Телефон  *">
+                            <img class="input_arrow" src="./images/arrow.svg">
+                        </div>
+                        <div class="block5_input">
+                            <input name="email" type="text" placeholder="Почта">
+                            <img class="input_arrow" src="./images/arrow.svg">
+                        </div>
+                        <div class="date_and_time last">
+                            <div class="block5_input date">
+                                <input name="date" type="date" placeholder="дата">
+                                <img class="input_chevron" src="./images/chevron.svg">
+                            </div>
+                            <div class="block5_input time ">
+                                <input name="time" type="time" placeholder="время">
+                                <img class="input_chevron" src="./images/chevron.svg">
+                            </div>
+
+                        </div>
+                        <p class="warning">* Обязательное поле</p>
+                            <button class="form_button" type="submit">
+                                Свяжитесь со мной
+                                <div class="arrow"> 
+                                </div>
+                            </button>
+                        <div class="form_checkbox">
+                            <input id="checkbox_button" type="checkbox" required>
+                            <label class="warning" for="checkbox_button">Согласие на обработку ПД</label>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+          
+
+
+        </div>
+        <footer>
+            <div class="footer__logo"><img src="./images/logo.svg"></div>
+            <div class="footer__content">
+                <div class="left column">
+                    <div class="social">
+                            <a href="https://www.vk.ru/" class="vk">
+                            </a>
+                            <a href="https://zen.yandex.ru/" class="yandex">
+                            </a>
+                            <a href="https://www.youtube.ru/" class="youtube">
+                            </a>
+                    </div>
+                    <div class="contacts">
+                        <p>+7 (495) 118-39-37</p>
+                        <p>hello@sreda.co</p>
+                        <p>Пресненская наб., 12, Москва</p>
+                        <div class="atank">
+                            <img src="./images/atank.svg">
+                            Сделано с любовью в Atank
+                        </div>
+                    </div>
+                </div>
+                <div class="right column">
+                    <nav>
+                        <ul class="footer__navigation">
+                            <li class="footer__navigation_item">
+                                <a href="#main">Главная</a>
+                            </li>
+                            <li class="footer__navigation_item">
+                                <a href="#tariffs">Тарифы</a>
+                            </li>
+                            <li class="footer__navigation_item">
+                                <a href="#blog">Блог</a>
+                            </li>
+                            <li class="footer__navigation_item">
+                                <a href="#contacts">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="documents">
+                        <p>
+                            <a href="#privacy">
+                                Политика конфиденциальности
+                            </a>
+                        </p>
+                        <p>
+                            <a href="#documents">
+                                Документы
+                            </a>
+                        </p>
+                    </div>
+                    <div class="mark">© 2018-2022 Коворкинг SREDA </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
