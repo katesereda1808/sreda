@@ -744,6 +744,14 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .documents_download_btn .arrow{
     margin-left: 10px;
 }
+/* //// privacy */
+.privacy_block1 .page_heading{
+    margin-top: 111px;
+    margin-bottom: 25px;
+}
+.privacy_block1_content div{
+    margin-bottom: 20px;
+}
 
 
 @media (max-width:900px) {

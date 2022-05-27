@@ -59,7 +59,10 @@ function handleValidation(regEx, str){
       clearWarning(str, 'valid');
   };
 };
-form.addEventListener('submit',onSubmit);
+if(form){
+  form.addEventListener('submit',onSubmit);
+}
+
 function onSubmit(e){
   e.preventDefault();
   for (let i = 0; i < inputs.length; i++) {
