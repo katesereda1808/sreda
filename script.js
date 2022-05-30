@@ -88,27 +88,45 @@ function onSubmit(e){
   };
 };
 
-let slider_content = document.querySelector('.slider__content');
-let dot_container = document.querySelector('.dots');
-let dots = document.getElementsByClassName("dot");
+// function addDots(length, eventFunction) {
+//   dot_container.innerHTML = '';
+//   for (let i = 0; i < length; i++) {
+//     let div = document.createElement('div');
+//     div.className = 'tariffs_slider_dot';
+//     dot_container.appendChild(div);
+//   };
+//   let dots = document.getElementsByClassName("tariffs_slider_dot");
+//   for (let i = 0; i < dots.length; i++) {
+//     dots[i].addEventListener('click', 
+//     ()=>eventFunction(i)
+//     )
+//   }
+// };
 
-function addDots() {
-  dot_container.innerHTML = '';
-  for (let i = 0; i < slider_content.children.length; i++) {
-    let div = document.createElement('div');
-    div.className = 'dot';
-    dot_container.appendChild(div);
-  };
+
+if(document.querySelector('.slider__content')){
+  let slider_content = document.querySelector('.slider__content');
+  let dot_container = document.querySelector('.dots');
   let dots = document.getElementsByClassName("dot");
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].addEventListener('click', 
-    ()=>showSlides(i)
-    )
-  }
-};
-addDots();
 
-let slides = document.getElementsByClassName("slide");
+  function addDots() {
+    dot_container.innerHTML = '';
+    for (let i = 0; i < slider_content.children.length; i++) {
+      let div = document.createElement('div');
+      div.className = 'dot';
+      dot_container.appendChild(div);
+    };
+    let dots = document.getElementsByClassName("dot");
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].addEventListener('click', 
+      ()=>showSlides(i)
+      )
+    }
+  };
+
+
+  addDots(slider_content.children, showSlides);
+  let slides = document.getElementsByClassName("slide");
 
 function showSlides(n){
   if (n > slides.length-1) {n = 0}    
@@ -141,6 +159,8 @@ chevron_right.addEventListener('click', ()=>showSlides(findSlide()+1));
 
 let floor19 = document.querySelector('.floor19');
 let floor20 = document.querySelector('.floor20');
+
+
 
 function getWidth(){
   let width = document.documentElement.clientWidth;
@@ -210,6 +230,7 @@ arrow_left.addEventListener('click', (e)=>{
   scrollSlides(-1);
 });
 
+// слайдер для текста на главной странице
 let frames = document.querySelector('.frames');
 let goUp = document.querySelector('.up');
 let goDown = document.querySelector('.down');
@@ -250,3 +271,295 @@ goDown.addEventListener('click',(e)=>{
   e.preventDefault();
   renderFrames(scrollFrames('down', framesContent))
 });
+
+
+
+
+
+}
+
+
+if(document.querySelector('.tariffs_slider')){
+  // in tariffs there's going to be 8 dots
+let coworking19 = [
+  {heading: `Разовое посещение`,
+  text: `
+  <li>Незакрепленное рабочее место;</li>
+  <li>Скоростной безлимитный интернет;</li>
+  <li>Монохромный принтер формата А4, сканер, копир;</li>
+  <li>Чай, кофе, вода;</li>
+  <li>Клиентское сопровождение.</li>
+`,
+  price: '2500 ₽',
+  img: './images/tariffs_slider1.jpg'},
+
+  {heading: `10 посещений / мес`,
+  text: `
+  <li>Незакрепленное рабочее место;</li>
+  <li>Скоростной безлимитный интернет;</li>
+  <li>Монохромный принтер формата А4, сканер, копир;</li>
+  <li>Чай, кофе, вода;</li>
+  <li>Клиентское сопровождение.</li>
+  <li>1 гостевой визит в неделю</li>
+`,
+  img: './images/tariffs_slider2.jpg',
+  price: '15 000 ₽'},
+
+  {heading: `Профессиональный (24 / 7)`,
+  text: `<li>Рабочее место</li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider1.jpg',
+  price: `<p>25 000 рублей / месяц <span class="little">незакрепленное</span></p>
+  <p>30 000 рублей / месяц <span class="little">закрепленное</span></p>
+  
+  <p>35 000 рублей / месяц <span class="little">закрепленное в зоне улучшенной планировки</span></p>`},
+
+  {heading: `Корпоративный (24 / 7)
+  для двух человек`,
+  text: `<li>Закрепленное рабочее место</li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>8 гостевых визитов в месяц</li>
+  <li>4 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `50 000 рублей / месяц
+  60 000 рублей / месяц в зоне улучшенной планировки`},
+
+  {heading: `3х месячный (24 / 7)`,
+  text: `<li>Закрепленное рабочее место</li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `27 000 рублей / месяц`},
+
+  {heading: `Полугодовой (24 / 7)`,
+  text: `<li>Закрепленное рабочее место</li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `26 000 рублей / месяц`},
+
+  {heading: `Годовой (24 / 7)`,
+  text: `<li>Закрепленное рабочее место</li>
+  <li>Скоростной интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>3 часа бесплатной аренды переговорной комнаты</li>
+  <li>локер для использования</li>
+  <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `290 000 рублей / год
+  390 000 рублей / год в зоне улучшенной планировки`},
+
+  {heading: `Смарт - офис 9`,
+  text: `<li>Закрепленное рабочее место</li>
+  <li>Скоростной интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>локер для использования</li>
+  <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `210 000 рублей / месяц`},
+
+  {heading: `Смарт - офис 10`,
+  text: `<li>Закрепленное рабочее место</li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `245 000 рублей / месяц`},
+
+  {heading: `Смарт - офис 11`,
+  text: `<li>Закрепленное рабочее место (9 рабочих мест)
+  </li>
+  <li>Скоростной интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>локер для использования</li>
+  <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `315 000 рублей / месяц`},
+
+  {heading: `Смарт - офис 12`,
+  text: `<li>Закрепленное рабочее место (3 рабочих места)
+  </li>
+  <li>Скоростной интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>локер для использования</li>
+  <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `105 000 рублей / месяц`},
+
+  {heading: `Смарт - офис 13`,
+  text: `<li>Закрепленное рабочее место (3 рабочих места)
+  </li>
+  <li>Скоростной интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `99 000 рублей / месяц`},
+
+  {heading: `Смарт - офис 14`,
+  text: `<li>Закрепленное рабочее место (4 рабочих места)
+  </li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `132 000 рублей / месяц`},
+
+  {heading: `Смарт - офис 15`,
+  text: `<li>Закрепленное рабочее место (2 рабочих места)
+  </li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/tariffs_slider2.jpg',
+  price: `66 000 рублей / месяц`},
+
+  {heading: `Смарт - офис 16`,
+  text: `<li>Закрепленное рабочее место (5 рабочих мест)
+  </li>
+  <li>Скоростной безлимитный интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
+  img: './images/slider_2.jpg',
+  price: `150 000 рублей / месяц`},
+
+ 
+
+]
+let tariffs_slides = coworking19;
+let slider_content = document.querySelector('.tariffs_slider_content');
+console.log(slider_content.children)
+  let dot_container = document.querySelector('.tariffs_slider_dots');
+  let dots = document.getElementsByClassName("tariffs_slider_dot");
+
+  function showTariffsSlides (index){
+    console.log('tariffs slides')
+    // index = index+1;
+    slider_content.innerHTML = ``;
+    for (let i = 0; i <= index; i++) {
+      // console.log(tariffs_slides[i].price)
+      slider_content.innerHTML = `<div class="tariffs_slide">
+      <img src="${tariffs_slides[i].img}">
+      <p class="tariffs_slide_heading">
+          ${tariffs_slides[i].heading}
+      </p>
+      <div class="tariffs_slide_text">
+        <ul class="tariffs_slide_ul">
+          ${tariffs_slides[i].text}
+        </ul>
+        <p class="price">${tariffs_slides[i].price}</p>
+      </div>
+      <a href="#booking">
+          <div class="book_btn">
+              Забронировать
+              <div class="arrow"></div>
+          </div>
+      </a>
+      </div>`
+
+      slider_content.innerHTML += `<div class="tariffs_slide">
+      <img src="${tariffs_slides[i+1].img}">
+      <p class="tariffs_slide_heading">
+          ${tariffs_slides[i+1].heading}
+      </p>
+      <div class="tariffs_slide_text">
+      <ul class="tariffs_slide_ul">
+      ${tariffs_slides[i+1].text}
+      </ul>
+          <p class="price">${tariffs_slides[i+1].price}</p>
+      </div>
+      <a href="#booking">
+          <div class="book_btn">
+              Забронировать
+              <div class="arrow"></div>
+          </div>
+      </a>
+      </div>`
+    }
+    
+  }
+  // вызов функции для ее проверки
+  showTariffsSlides(5)
+
+  function addDots(length) {
+    dot_container.innerHTML = '';
+    for (let i = 0; i < length; i++) {
+      let div = document.createElement('div');
+      div.className = 'tariffs_slider_dot';
+      dot_container.appendChild(div);
+    };
+    let dots = document.getElementsByClassName("tariffs_slider_dot");
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].addEventListener('click', 
+      ()=>showTariffsSlides(i)
+      )
+    }
+  };
+
+
+  addDots(tariffs_slides.length, showTariffsSlides);
+}
+
+
+
+
+
+
+
+
+
+
