@@ -756,20 +756,133 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     margin-bottom: 20px;
 }
 /* //////// news */
-/* .news_block1{
+.news_block1{
     border-bottom: 2px solid #9B9B9B;
-} */
+}
+.news_page_content{
+    font-weight: 400;
+}
+.news_item{
+    border-top: 2px solid #9B9B9B;
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.news_item_img{
+    height: 100%;
+}
+.news_item_text{
+    margin-left: 20px;
+}
+.news_item_date{
+    font-size: 12px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.news_item_heading{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.news_item_content{
+    margin-bottom: 30px;
+}
+.read_more{
+    display: flex;
+    flex-direction: row;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.news_pages{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+    justify-self: center;
+    width: 200px;
+    margin: 30px auto;
+}
+.toTheLeft{
+    transform: rotate(180deg);
+}
 /* /////// contacts */
 .contacts_block1{
     display: flex;
     flex-direction: column;
 }
 .contacts_block1_text {
-    font-size: 28px;
+    
+    font-weight: 400;
+    margin-top: 52px;
+    display: flex;
+    flex-direction: row;
+    height: 168px;
 }
+.contacts_block1_text_address{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
 
+    justify-content: center;
+    width: 50%;
+    font-size: 28px;
+    font-weight: 500;
+}
+.contacts_block1_text_contacts{
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+.official_name{
+    font-size: 12px;
+    font-weight: 500;
+}
+.contacts_block1_map{
+    margin-top: 117px;
+    margin-bottom: 20px;
+}
 .contacts_block1_map img{
     width: 100%;
+}
+.contacts_block2 p{
+    margin-top: 20px;
+}
+.video_instruction{
+    width: 100%;
+}
+.contacts_block2{
+    font-weight: 700;
+    margin-top: 260px;
+}
+/* // 404 */
+.error_block{
+    display: flex;
+    flex-direction: row;
+}
+.error_block_left, .error_block_right{
+    width: 50%;
+}
+.error_block_left{
+    font-size: 290px;
+    font-size: 18.125vw;
+    font-weight: 500;
+}
+.error_block_right{
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.error_block_right p{
+    font-size: 28px;
+}
+.goBack_button{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
 }
 
 
@@ -1258,7 +1371,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         display: none;
     } */
     .tariffs_slider_content{
-        height: 868px;
+        /* height: 868px; */
+        height: 130vh;
         /* height: 236vw; */
         overflow: hidden;
         width: auto;
@@ -1268,7 +1382,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .tariffs_slide{
         width: 100%;
-        margin-bottom: 50px;
+        margin-bottom: 300px;
     }
     .tariffs_slide img{
         width: 100%;
@@ -1293,6 +1407,52 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .tariffs_block3 .form_button{
         margin-top: 63px;
+    }
+    /* // news */
+    .news_item{
+        flex-direction: column;
+    }
+    .news_item_img{
+        display: none;
+    }
+    /* // contacts */
+    .contacts_block1{
+        margin-top: 30px;
+    }
+    .contacts_block1_text{
+        flex-direction: column;
+    }
+    .contacts_block1_text_address{
+        margin-bottom: 50px;
+    }
+    .contacts_block1_text_contacts{
+        padding-left: 0px;
+    }
+    .contacts_block1_text .block1__footer_social{
+        margin-bottom: 30px;
+    }
+    .contacts_block1_text_address, .contacts_block1_text_contacts{
+        width: 100%;
+    }
+    .official_name{
+        font-size: 18px;
+    }
+    /* //// 404 */
+    .error_block{
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .error_block_right{
+        padding-left: 0px;
+        margin-top: 40px;
+        align-items: center;
+    }
+    .error_block_right p{
+        margin-bottom: 30px;
+    }
+    .goBack_button{
+        margin-top: 30px;
     }
 
 }

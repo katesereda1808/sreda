@@ -510,8 +510,8 @@ console.log(slider_content.children)
           </div>
       </a>
       </div>`
-
-      slider_content.innerHTML += `<div class="tariffs_slide">
+      if(tariffs_slides[i+1]){
+        slider_content.innerHTML += `<div class="tariffs_slide">
       <img src="${tariffs_slides[i+1].img}">
       <p class="tariffs_slide_heading">
           ${tariffs_slides[i+1].heading}
@@ -529,6 +529,9 @@ console.log(slider_content.children)
           </div>
       </a>
       </div>`
+
+      }
+      
     }
     
   }
