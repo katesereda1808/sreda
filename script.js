@@ -88,21 +88,6 @@ function onSubmit(e){
   };
 };
 
-// function addDots(length, eventFunction) {
-//   dot_container.innerHTML = '';
-//   for (let i = 0; i < length; i++) {
-//     let div = document.createElement('div');
-//     div.className = 'tariffs_slider_dot';
-//     dot_container.appendChild(div);
-//   };
-//   let dots = document.getElementsByClassName("tariffs_slider_dot");
-//   for (let i = 0; i < dots.length; i++) {
-//     dots[i].addEventListener('click', 
-//     ()=>eventFunction(i)
-//     )
-//   }
-// };
-
 
 if(document.querySelector('.slider__content')){
   let slider_content = document.querySelector('.slider__content');
@@ -280,7 +265,6 @@ goDown.addEventListener('click',(e)=>{
 
 
 if(document.querySelector('.tariffs_slider')){
-  // in tariffs there's going to be 8 dots
 let coworking19 = [
   {heading: `Разовое посещение`,
   text: `
@@ -482,16 +466,54 @@ let coworking19 = [
 ]
 let tariffs_slides = coworking19;
 let slider_content = document.querySelector('.tariffs_slider_content');
-console.log(slider_content.children)
   let dot_container = document.querySelector('.tariffs_slider_dots');
   let dots = document.getElementsByClassName("tariffs_slider_dot");
+  
 
-  function showTariffsSlides (index){
-    console.log('tariffs slides')
-    // index = index+1;
+  function scrollTariffs(direction) {
+    for (let i = 0; i < tariffs_slides.length; i++) {
+      let item = tariffs_slides[i];
+      if(item.heading === document.querySelector('.tariffs_slide_heading').innerText)
+      {
+        let index;
+        if(direction==='+'){
+          index=tariffs_slides.indexOf(item)+2;
+        }else{
+          index=tariffs_slides.indexOf(item)-2;
+        }
+        showTariffsSlides(index, getTariffsWidth());
+        break;
+      }
+    }
+  }
+
+  let toTheRight = document.querySelector('.tariffs_slider_toTheRight');
+  let toTheLeft = document.querySelector('.tariffs_slider_toTheLeft');
+
+  if(toTheRight){
+    toTheRight.addEventListener('click', ()=>scrollTariffs('+'));
+    toTheLeft.addEventListener('click', ()=>scrollTariffs('-'));
+  }
+
+
+  function getTariffsWidth(){
+    let width = document.documentElement.clientWidth;
+    if(width>900){
+      showTariffsSlides(0,'desktop')
+      return 'desktop';
+    } else{
+      showTariffsSlides(0);
+    }
+  };
+
+  function showTariffsSlides (index, version){
+    if (index<0){
+      index=tariffs_slides.length;
+    } else if (index>tariffs_slides.length){
+      index=0;
+    }
     slider_content.innerHTML = ``;
     for (let i = 0; i <= index; i++) {
-      // console.log(tariffs_slides[i].price)
       slider_content.innerHTML = `<div class="tariffs_slide">
       <img src="${tariffs_slides[i].img}">
       <p class="tariffs_slide_heading">
@@ -510,33 +532,30 @@ console.log(slider_content.children)
           </div>
       </a>
       </div>`
-      if(tariffs_slides[i+1]){
-        slider_content.innerHTML += `<div class="tariffs_slide">
-      <img src="${tariffs_slides[i+1].img}">
-      <p class="tariffs_slide_heading">
-          ${tariffs_slides[i+1].heading}
-      </p>
-      <div class="tariffs_slide_text">
-      <ul class="tariffs_slide_ul">
-      ${tariffs_slides[i+1].text}
-      </ul>
-          <p class="price">${tariffs_slides[i+1].price}</p>
-      </div>
-      <a href="#booking">
-          <div class="book_btn">
-              Забронировать
-              <div class="arrow"></div>
-          </div>
-      </a>
-      </div>`
-
+      if(version=='desktop'){
+        if(tariffs_slides[i+1]){
+          slider_content.innerHTML += `<div class="tariffs_slide">
+        <img src="${tariffs_slides[i+1].img}">
+        <p class="tariffs_slide_heading">
+            ${tariffs_slides[i+1].heading}
+        </p>
+        <div class="tariffs_slide_text">
+        <ul class="tariffs_slide_ul">
+        ${tariffs_slides[i+1].text}
+        </ul>
+            <p class="price">${tariffs_slides[i+1].price}</p>
+        </div>
+        <a href="#booking">
+            <div class="book_btn">
+                Забронировать
+                <div class="arrow"></div>
+            </div>
+        </a>
+        </div>`
+        }
       }
-      
     }
-    
   }
-  // вызов функции для ее проверки
-  showTariffsSlides(5)
 
   function addDots(length) {
     dot_container.innerHTML = '';
@@ -548,13 +567,14 @@ console.log(slider_content.children)
     let dots = document.getElementsByClassName("tariffs_slider_dot");
     for (let i = 0; i < dots.length; i++) {
       dots[i].addEventListener('click', 
-      ()=>showTariffsSlides(i)
+      ()=>showTariffsSlides(i, getTariffsWidth())
       )
     }
   };
 
-
-  addDots(tariffs_slides.length, showTariffsSlides);
+  window.addEventListener('resize', getTariffsWidth);
+  getTariffsWidth();
+  addDots(tariffs_slides.length);
 }
 
 

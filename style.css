@@ -637,6 +637,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     align-items: flex-end;
     cursor: pointer;
     width: 40px;
+    height: 630px;
 }
 .tariffs_slider_dots{
     display: flex;
@@ -1399,6 +1400,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .tariffs_slider_dots{
         flex-direction: row;
     }
+    .tariffs_slider_indicator{
+        height: auto;
+    }
     .tariffs_slider_indicator .arrow{
         display: none;
     }
@@ -1412,10 +1416,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         display: none;
     } */
     .tariffs_slider_content{
-        /* height: 868px; */
-        height: 130vh;
-        /* height: 236vw; */
-        overflow: hidden;
+        height: 868px;
+      
+
+        overflow: scroll;
         width: auto;
     }
     .tariffs_slider_content:first-child{
@@ -1423,7 +1427,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .tariffs_slide{
         width: 100%;
-        margin-bottom: 300px;
     }
     .tariffs_slide img{
         width: 100%;
