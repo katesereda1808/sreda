@@ -24,11 +24,13 @@ body{
     box-sizing: border-box;
 }
 a:hover, button:hover, label:hover{
-    color: #A1A1A1;
+    opacity: 0.6;
+}
+.warning a:hover{
+    opacity: 1;
 }
 .phone{
     color: #A1A1A1;
-    /* font-size: 18px; */
     margin-right: 20px;
 }
 input[type=number]::-webkit-outer-spin-button,
@@ -60,7 +62,6 @@ header{
     flex-direction: row;
     margin-left: 26px;
     letter-spacing: 1.5px;
-    /* font-size: 18px; */
     font-weight: 700;
 }
 a{
@@ -78,7 +79,6 @@ footer{
     line-height: 200%;
     border-top: 2px solid #9B9B9B;
     padding-top: 20px;
-    /* font-size: 18px; */
     line-height: 260%;
 }
 .footer__content{
@@ -196,7 +196,6 @@ footer .social{
 .text1{
     display: block;
     width: 23.125vw;
-    /* font-size: 18px; */
     margin-left: 4px;
     margin-bottom: 49px;
     color: #A1A1A1;
@@ -214,7 +213,6 @@ footer .social{
     margin-top: 200px;
 }
 .text2__content{
-    /* font-size: 18px; */
     font-weight: 400;
     margin-bottom: 20px;
     color: #FFFFFF;
@@ -255,9 +253,6 @@ footer .social{
     height: 24px;
     width: 24px;
 }
-.arrow:hover{
-    background: url(./images/arrow_hover.svg);
-}
 #arrow_left{
     transform: rotate(-180deg);
 }
@@ -274,7 +269,6 @@ footer .social{
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #FFFFFF;
-    /* font-size: 18px; */
     font-weight: 700;
     padding-bottom: 5px;
     margin-bottom: 21.5px;
@@ -329,7 +323,6 @@ footer .social{
     width: 32.500vw;
 }
 .frame{
-    /* font-size: 18px; */
     font-weight: 400;
     color: #A1A1A1;
     padding-bottom: 22px;
@@ -363,9 +356,6 @@ ul{
 .down{
     transform: rotate(90deg);
 }
-/* .block4 .arrows .down{
-    transform: rotate(90deg);
-} */
 .block5{
     margin-top: 173px;
 }
@@ -380,7 +370,6 @@ ul{
 .block5__text{
     width: 34.188vw;
     margin-bottom: 35px;
-    /* font-size: 18px; */
 }
 .block5 .title{
     margin-bottom: 47px;
@@ -541,22 +530,16 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     width: 24px;
     height: 24px;
 }
-.yandex:hover{
-    background: url(./images/yandex_hover.svg);
+.yandex:hover, .youtube:hover, .vk:hover{
+    opacity: 0.6;
 }
-.youtube:hover{
-    background: url(./images/youtube_hover.svg);
-}
-.vk:hover{
-    background: url(./images/vk_hover.svg);
-}
+
 .chevron{
     display: none;
 }
 /* tariffs */
 .heading{
     width: 100%;
-    /* font-size: 48px; */
 }
 .tariffs_block1, .tariffs_block3, .booking_block1_row, .booking_block3{
     display: flex;
@@ -577,7 +560,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .tariffs_block1 .column{
     display: flex;
     flex-direction: column;
-    /* height: 426px; */
     justify-content: space-between;
     
 }
@@ -609,7 +591,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     justify-content: space-between;
 }
 .tariffs_slide{
-    /* width: 498px; */
     width: 31.125vw;
 }
 .tariffs_slide img{
@@ -624,12 +605,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     list-style: disc;
     margin-left: 27px;
 }
-/* .indicator{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-} */
 .tariffs_slider_indicator{
     display: flex;
     flex-direction: column;
@@ -645,7 +620,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     justify-content: center;
     margin-top: 24.5px;
     margin-bottom: 10.5px;
-    /* margin-left: 10px; */
     margin-right: 5px;
     display: flex;
 }
@@ -680,8 +654,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 .tariffs_form_image, .booking_form_image{
     width: 100%;
-    /* height: 426px; */
-    /* max-width: 570px; */
 }
 .tariffs_form_image{
     margin-top: 36px;
@@ -1126,13 +1098,17 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         display: block;
         cursor: pointer;
     }
+    /* .input_chevron:hover{
+        opacity: 0.6;
+    } */
     .chevron:hover{
-        background: url(./images/chevron_hover.svg);
-        background-repeat: no-repeat;
+        opacity: 0.6;
+        /* background: url(./images/chevron_hover.svg); */
+        /* background-repeat: no-repeat;
         background-size: 100%;
         width: 12px;
         height: 7px;
-        display: block;
+        display: block; */
     }
     .direction{
         width: 31.33vw;
@@ -1347,14 +1323,12 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .tariffs_block1_img_collapse, .booking_form_image{
         display: none;
     }
-    .tariffs_block1_img1{
-        /* height: 250%; */
-        /* height: 84.267vw;
-        max-width: unset; */
-        /* width: 100%; */
-        /* position: absolute;
-        top: 0; */
-    }
+    /* .tariffs_block1_img1{
+        height: 250%;
+        height: 84.267vw;
+        max-width: unset;
+        width: 100%;
+    } */
     .tariffs_block1 img{
         max-width: unset;
         /* height: 84.267vw;
