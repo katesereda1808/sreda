@@ -1,23 +1,18 @@
 # sreda
-Сделано:
-главная
-тарифы
-бронирование
-политика конфиденциальности
-документы
-новости
-контакты
-404
 
-Осталось:
-
-откорректировать слайдер в тарифах
+Главная - https://enchanting-madeleine-b74adb.netlify.app/home.html
+тарифы - https://enchanting-madeleine-b74adb.netlify.app/tariffs.html
+контакты - https://enchanting-madeleine-b74adb.netlify.app/contacts.html
+забронировать - https://enchanting-madeleine-b74adb.netlify.app/booking.html
+новости - https://enchanting-madeleine-b74adb.netlify.app/news.html
+статья - https://enchanting-madeleine-b74adb.netlify.app/article.html
+политика конфиденциальности - https://enchanting-madeleine-b74adb.netlify.app/privacy.html
+документы - https://enchanting-madeleine-b74adb.netlify.app/documents.html
+ошибка - https://enchanting-madeleine-b74adb.netlify.app/error.html
 
 
 
 
 
-A website presenting a coworking.
-The project contains mobile and desktop application versions.
-Threre is a scroll animation, enabling the blocks of the page to emerge smoothly.
-In the feedback form validation of email and phone number is implemented
+
+
