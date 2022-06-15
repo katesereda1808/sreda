@@ -45,7 +45,7 @@ input[type=number]{
 .menu{
     display: none;
 }
-button{
+button, a{
     cursor: pointer;
 }
 header{
