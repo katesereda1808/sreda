@@ -174,7 +174,7 @@ getWidth();
 window.addEventListener('resize', getWidth);
 
 let arr19 = ['images/slider_1.jpg', 'images/slider_2.jpg', 'images/slider_3.jpg'];
-let arr20 = ['images/1132 (69).JPG', 'images/1132 (45).JPG', 'images/1132 (37).JPG', 'images/1132 (25).JPG', 'images/1132 (18).JPG', 'images/1132 (13).JPG', 'images/1132 (12).JPG'];
+let arr20 = ['images/1132 (69).JPG', 'images/1132 (45).JPG', 'images/1132 (37).JPG', 'images/1132 (25).JPG', 'images/1132 (18).JPG'];
 
 function changeSlidesSet(place, arr) {
   place.innerHTML='';

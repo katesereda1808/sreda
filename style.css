@@ -286,6 +286,7 @@ footer .social{
 .slider__content{
     width: 76.267vw;
     min-width: 200px;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -440,7 +441,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     color: #B50000;
 }
 .form{
-    margin-left: 60px;
     margin-top: -14px;
     display: flex;
     flex-direction: column;
