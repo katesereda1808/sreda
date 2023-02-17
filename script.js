@@ -1,3 +1,4 @@
+'use strict';
 function onEntry(entry) {
   entry.forEach(change => {
     if (change.isIntersecting) {
@@ -24,7 +25,7 @@ close_menu.addEventListener('click', function(){
 });
 
 let regName = /[a-b]|[а-я]/;
-let regNumber = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+let regNumber = /^(?=.{1,60}$)\S+@(?:[\w-]+\.)+[\w-]{2,5}$/;
 let regEmail = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
 let form = document.querySelector('.form');
 let inputs=document.querySelectorAll('.block5_input input');
@@ -92,7 +93,7 @@ function onSubmit(e){
 if(document.querySelector('.slider__content')){
   let slider_content = document.querySelector('.slider__content');
   let dot_container = document.querySelector('.dots');
-  let dots = document.getElementsByClassName("dot");
+  let dots = document.getElementsByClassName('dot');
 
   function addDots() {
     dot_container.innerHTML = '';
@@ -101,7 +102,7 @@ if(document.querySelector('.slider__content')){
       div.className = 'dot';
       dot_container.appendChild(div);
     };
-    let dots = document.getElementsByClassName("dot");
+    let dots = document.getElementsByClassName('dot');
     for (let i = 0; i < dots.length; i++) {
       dots[i].addEventListener('click', 
       ()=>showSlides(i)
@@ -111,21 +112,21 @@ if(document.querySelector('.slider__content')){
 
 
   addDots(slider_content.children, showSlides);
-  let slides = document.getElementsByClassName("slide");
+  let slides = document.getElementsByClassName('slide');
 
 function showSlides(n){
   if (n > slides.length-1) {n = 0}    
   if (n < 0) {
     n = slides.length-1;
   }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
     slides[i].classList.remove('shown');
   }
-  for (i = 0; i < dots.length; i++) {
+  for (let i = 0; i < dots.length; i++) {
     dots[i].classList.remove('dot_active');
   }
-  slides[n].style.display = "block";
+  slides[n].style.display = 'block';
   slides[n].classList.add('shown');
   dots[n].classList.add('dot_active');
 }
@@ -135,7 +136,7 @@ let chevron_right = document.querySelector('.direction_right');
 
 function findSlide() {
   let shown = slider_content.querySelector('.shown');
-  slidesArr = Array.from(slides);
+  let slidesArr = Array.from(slides);
   return(slidesArr.indexOf(shown));
 }
 
@@ -164,8 +165,8 @@ function getWidth(){
     });
     return 'mobile';
   } else {
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "block";
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'block';
     }
     return 'desktop';
   }
@@ -173,8 +174,18 @@ function getWidth(){
 getWidth();
 window.addEventListener('resize', getWidth);
 
-let arr19 = ['images/slider_1.jpg', 'images/slider_2.jpg', 'images/slider_3.jpg'];
-let arr20 = ['images/1132 (69).JPG', 'images/1132 (45).JPG', 'images/1132 (37).JPG', 'images/1132 (25).JPG', 'images/1132 (18).JPG'];
+let arr19 = [
+  "./assets/images/slider_1.jpg",
+  "./assets/images/slider_2.jpg",
+  "./assets/images/slider_3.jpg",
+];
+let arr20 = [
+  "./assets/images/1132 (69).JPG",
+  "./assets/images/1132 (45).JPG",
+  "./assets/images/1132 (37).JPG",
+  "./assets/images/1132 (25).JPG",
+  "./assets/images/1132 (18).JPG",
+];
 
 function changeSlidesSet(place, arr) {
   place.innerHTML='';
@@ -256,29 +267,26 @@ goDown.addEventListener('click',(e)=>{
   e.preventDefault();
   renderFrames(scrollFrames('down', framesContent))
 });
-
-
-
-
-
 }
-
 
 if(document.querySelector('.tariffs_slider')){
 let coworking19 = [
-  {heading: `Разовое посещение`,
-  text: `
+  {
+    heading: `Разовое посещение`,
+    text: `
   <li>Незакрепленное рабочее место;</li>
   <li>Скоростной безлимитный интернет;</li>
   <li>Монохромный принтер формата А4, сканер, копир;</li>
   <li>Чай, кофе, вода;</li>
   <li>Клиентское сопровождение.</li>
 `,
-  price: '2500 ₽',
-  img: './images/tariffs_slider1.jpg'},
+    price: "2500 ₽",
+    img: "./assets/images/tariffs_slider1.jpg",
+  },
 
-  {heading: `10 посещений / мес`,
-  text: `
+  {
+    heading: `10 посещений / мес`,
+    text: `
   <li>Незакрепленное рабочее место;</li>
   <li>Скоростной безлимитный интернет;</li>
   <li>Монохромный принтер формата А4, сканер, копир;</li>
@@ -286,11 +294,13 @@ let coworking19 = [
   <li>Клиентское сопровождение.</li>
   <li>1 гостевой визит в неделю</li>
 `,
-  img: './images/tariffs_slider2.jpg',
-  price: '15 000 ₽'},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: "15 000 ₽",
+  },
 
-  {heading: `Профессиональный (24 / 7)`,
-  text: `<li>Рабочее место</li>
+  {
+    heading: `Профессиональный (24 / 7)`,
+    text: `<li>Рабочее место</li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
   <li>Чай, кофе, вода</li>
@@ -298,15 +308,17 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider1.jpg',
-  price: `<p>25 000 рублей / месяц <span class="little">незакрепленное</span></p>
+    img: "./assets/images/tariffs_slider1.jpg",
+    price: `<p>25 000 рублей / месяц <span class="little">незакрепленное</span></p>
   <p>30 000 рублей / месяц <span class="little">закрепленное</span></p>
   
-  <p>35 000 рублей / месяц <span class="little">закрепленное в зоне улучшенной планировки</span></p>`},
+  <p>35 000 рублей / месяц <span class="little">закрепленное в зоне улучшенной планировки</span></p>`,
+  },
 
-  {heading: `Корпоративный (24 / 7)
+  {
+    heading: `Корпоративный (24 / 7)
   для двух человек`,
-  text: `<li>Закрепленное рабочее место</li>
+    text: `<li>Закрепленное рабочее место</li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
   <li>Чай, кофе, вода</li>
@@ -314,12 +326,14 @@ let coworking19 = [
   <li>8 гостевых визитов в месяц</li>
   <li>4 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `50 000 рублей / месяц
-  60 000 рублей / месяц в зоне улучшенной планировки`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `50 000 рублей / месяц
+  60 000 рублей / месяц в зоне улучшенной планировки`,
+  },
 
-  {heading: `3х месячный (24 / 7)`,
-  text: `<li>Закрепленное рабочее место</li>
+  {
+    heading: `3х месячный (24 / 7)`,
+    text: `<li>Закрепленное рабочее место</li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
   <li>Чай, кофе, вода</li>
@@ -327,11 +341,13 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `27 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `27 000 рублей / месяц`,
+  },
 
-  {heading: `Полугодовой (24 / 7)`,
-  text: `<li>Закрепленное рабочее место</li>
+  {
+    heading: `Полугодовой (24 / 7)`,
+    text: `<li>Закрепленное рабочее место</li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
   <li>Чай, кофе, вода</li>
@@ -339,11 +355,13 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `26 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `26 000 рублей / месяц`,
+  },
 
-  {heading: `Годовой (24 / 7)`,
-  text: `<li>Закрепленное рабочее место</li>
+  {
+    heading: `Годовой (24 / 7)`,
+    text: `<li>Закрепленное рабочее место</li>
   <li>Скоростной интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
   <li>Чай, кофе, вода</li>
@@ -352,12 +370,14 @@ let coworking19 = [
   <li>3 часа бесплатной аренды переговорной комнаты</li>
   <li>локер для использования</li>
   <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `290 000 рублей / год
-  390 000 рублей / год в зоне улучшенной планировки`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `290 000 рублей / год
+  390 000 рублей / год в зоне улучшенной планировки`,
+  },
 
-  {heading: `Смарт - офис 9`,
-  text: `<li>Закрепленное рабочее место</li>
+  {
+    heading: `Смарт - офис 9`,
+    text: `<li>Закрепленное рабочее место</li>
   <li>Скоростной интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
   <li>Чай, кофе, вода</li>
@@ -366,11 +386,13 @@ let coworking19 = [
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>локер для использования</li>
   <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `210 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `210 000 рублей / месяц`,
+  },
 
-  {heading: `Смарт - офис 10`,
-  text: `<li>Закрепленное рабочее место</li>
+  {
+    heading: `Смарт - офис 10`,
+    text: `<li>Закрепленное рабочее место</li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
   <li>Чай, кофе, вода</li>
@@ -378,25 +400,13 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `245 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `245 000 рублей / месяц`,
+  },
 
-  {heading: `Смарт - офис 11`,
-  text: `<li>Закрепленное рабочее место (9 рабочих мест)
-  </li>
-  <li>Скоростной интернет</li>
-  <li>Монохромный принтер формата А4, сканер, копир</li>
-  <li>Чай, кофе, вода</li>
-  <li>Клиентское сопровождение</li>
-  <li>5 гостевых визитов в месяц</li>
-  <li>2 часа бесплатной аренды переговорной комнаты</li>
-  <li>локер для использования</li>
-  <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `315 000 рублей / месяц`},
-
-  {heading: `Смарт - офис 12`,
-  text: `<li>Закрепленное рабочее место (3 рабочих места)
+  {
+    heading: `Смарт - офис 11`,
+    text: `<li>Закрепленное рабочее место (9 рабочих мест)
   </li>
   <li>Скоростной интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
@@ -406,11 +416,29 @@ let coworking19 = [
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>локер для использования</li>
   <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `105 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `315 000 рублей / месяц`,
+  },
 
-  {heading: `Смарт - офис 13`,
-  text: `<li>Закрепленное рабочее место (3 рабочих места)
+  {
+    heading: `Смарт - офис 12`,
+    text: `<li>Закрепленное рабочее место (3 рабочих места)
+  </li>
+  <li>Скоростной интернет</li>
+  <li>Монохромный принтер формата А4, сканер, копир</li>
+  <li>Чай, кофе, вода</li>
+  <li>Клиентское сопровождение</li>
+  <li>5 гостевых визитов в месяц</li>
+  <li>2 часа бесплатной аренды переговорной комнаты</li>
+  <li>локер для использования</li>
+  <li>скидка 30% на аренду переговорных комнат и зала для переговоров</li>`,
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `105 000 рублей / месяц`,
+  },
+
+  {
+    heading: `Смарт - офис 13`,
+    text: `<li>Закрепленное рабочее место (3 рабочих места)
   </li>
   <li>Скоростной интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
@@ -419,11 +447,13 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `99 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `99 000 рублей / месяц`,
+  },
 
-  {heading: `Смарт - офис 14`,
-  text: `<li>Закрепленное рабочее место (4 рабочих места)
+  {
+    heading: `Смарт - офис 14`,
+    text: `<li>Закрепленное рабочее место (4 рабочих места)
   </li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
@@ -432,11 +462,13 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `132 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `132 000 рублей / месяц`,
+  },
 
-  {heading: `Смарт - офис 15`,
-  text: `<li>Закрепленное рабочее место (2 рабочих места)
+  {
+    heading: `Смарт - офис 15`,
+    text: `<li>Закрепленное рабочее место (2 рабочих места)
   </li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
@@ -445,11 +477,13 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/tariffs_slider2.jpg',
-  price: `66 000 рублей / месяц`},
+    img: "./assets/images/tariffs_slider2.jpg",
+    price: `66 000 рублей / месяц`,
+  },
 
-  {heading: `Смарт - офис 16`,
-  text: `<li>Закрепленное рабочее место (5 рабочих мест)
+  {
+    heading: `Смарт - офис 16`,
+    text: `<li>Закрепленное рабочее место (5 рабочих мест)
   </li>
   <li>Скоростной безлимитный интернет</li>
   <li>Монохромный принтер формата А4, сканер, копир</li>
@@ -458,16 +492,14 @@ let coworking19 = [
   <li>5 гостевых визитов в месяц</li>
   <li>2 часа бесплатной аренды переговорной комнаты</li>
   <li>скидка 30% на аренду переговорных комнат, зала для переговоров и локеров</li>`,
-  img: './images/slider_2.jpg',
-  price: `150 000 рублей / месяц`},
-
- 
-
-]
+    img: "./assets/images/slider_2.jpg",
+    price: `150 000 рублей / месяц`,
+  },
+];
 let tariffs_slides = coworking19;
 let slider_content = document.querySelector('.tariffs_slider_content');
-  let dot_container = document.querySelector('.tariffs_slider_dots');
-  let dots = document.getElementsByClassName("tariffs_slider_dot");
+  var dot_container = document.querySelector('.tariffs_slider_dots');
+  let dots = document.getElementsByClassName('tariffs_slider_dot');
   
 
   function scrollTariffs(direction) {
@@ -482,6 +514,7 @@ let slider_content = document.querySelector('.tariffs_slider_content');
           index=tariffs_slides.indexOf(item)-2;
         }
         showTariffsSlides(index, getTariffsWidth());
+        // dots[i].classList.add('tariffs_slider_dot_active');
         break;
       }
     }
@@ -495,7 +528,6 @@ let slider_content = document.querySelector('.tariffs_slider_content');
     toTheLeft.addEventListener('click', ()=>scrollTariffs('-'));
   }
 
-
   function getTariffsWidth(){
     let width = document.documentElement.clientWidth;
     if(width>900){
@@ -505,7 +537,6 @@ let slider_content = document.querySelector('.tariffs_slider_content');
       showTariffsSlides(0);
     }
   };
-
   function showTariffsSlides (index, version){
     if (index<0){
       index=tariffs_slides.length;
@@ -557,14 +588,20 @@ let slider_content = document.querySelector('.tariffs_slider_content');
     }
   }
 
-  function addDots(length) {
+  function addTariffsDots(length) {
     dot_container.innerHTML = '';
-    for (let i = 0; i < length; i++) {
+    let newLength;
+    if (getTariffsWidth()) {
+      newLength = +length / 2;
+    } else {
+      newLength = length;
+    }
+    for (let i = 0; i < newLength; i++) {
       let div = document.createElement('div');
       div.className = 'tariffs_slider_dot';
       dot_container.appendChild(div);
     };
-    let dots = document.getElementsByClassName("tariffs_slider_dot");
+    let dots = document.getElementsByClassName('tariffs_slider_dot');
     for (let i = 0; i < dots.length; i++) {
       dots[i].addEventListener('click', 
       ()=>showTariffsSlides(i, getTariffsWidth())
@@ -574,7 +611,7 @@ let slider_content = document.querySelector('.tariffs_slider_content');
 
   window.addEventListener('resize', getTariffsWidth);
   getTariffsWidth();
-  addDots(tariffs_slides.length);
+  addTariffsDots(tariffs_slides.length);
 }
 
 
@@ -586,3 +623,71 @@ let slider_content = document.querySelector('.tariffs_slider_content');
 
 
 
+
+
+
+
+
+
+
+
+//   <div class="slider">
+//   <div class="slider__head">
+//       <div class="floors">
+//           <a href="#19">
+//               <div class="floor floor19">
+//                   19 этаж
+//                       <div class="chevron"></div>
+//               </div>
+//           </a>
+//           <div class="floor floor20" id="20">
+//               <a href="#20">
+//                   20 этаж
+//               </a>
+//           </div>
+//       </div>
+//       <div class="floors_mobile">
+//           <details class="accordeon__item">
+//               <summary class="accordeon__title">
+//                   <a href="#19">
+//                       <div class="floor floor19_mobile" id="19">
+//                           19 этаж
+//                       </div>
+//                   </a>
+                  
+//                   <div class="chevron"></div>
+//               </summary>
+//               <div class="collapse-content">
+//                   <a href="#20">
+//                   <div class="floor floor20_mobile" id="20">
+//                           20 этаж
+//                   </div>
+//                   </a>
+//               </div>
+//           </details>
+//       </div>
+//       <div class="arrows">
+//           <a href="#19" class="arrow" id="arrow_left">
+//           </a>
+//           <a href="#20" class="arrow" id="arrow_right">
+//           </a>
+//       </div>
+//   </div>
+//   <div class="slider__content">
+//    [[getImageList? &tvname= `slider` &tpl= `slider.main.tpl`]]
+     
+//   </div>
+//   <div class="chevrons">
+//       <div class="direction direction_left">
+//           <div class="chevron" id="chevron_left"></div>
+//       </div>
+//       <div class="direction direction_right">
+//           <div class="chevron" id="chevron_right"></div>
+//       </div>
+//   </div>
+//   <div class="indicator">
+//       <div class="dots">
+//           [[getImageList? &tvname= `slider` &tpl= `slider-indicator.main.tpl`]]
+//       </div>
+//   </div>
+// </div>

@@ -112,7 +112,8 @@ footer .social{
     margin-top: -3px;
 }
 .column{
-    width: 35.625vw;
+    /* width: 35.625vw; */
+        width: 46%;
 }
 .right{
     font-weight: 700;
@@ -291,6 +292,8 @@ footer .social{
     justify-content: space-between;
     position: relative;
     overflow-x: scroll;
+    /* scroll-snap-type: mandatory;
+                    scroll-snap-align: center; */
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
@@ -760,6 +763,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 .news_item_content{
     margin-bottom: 30px;
+    font-size: 18px;
 }
 .read_more{
     display: flex;
