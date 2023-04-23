@@ -33,9 +33,9 @@ let inputs=document.querySelectorAll('.block5_input input');
 function clearWarning(input, flag){
   let inputContainer = input.parentElement;
   inputContainer.classList.remove('invalid');
-  flag=='valid'?
-  inputContainer.children[1].src='images/check.svg':
-  inputContainer.children[1].src='images/arrow.svg';
+  flag == "valid"
+    ? (inputContainer.children[1].src = "./assets/icons/check.svg")
+    : (inputContainer.children[1].src = "./assets/icons/arrow.svg");
   Array.from(inputContainer.children).map((el)=>{
     if(el.classList.contains('error')){
       el.remove();
@@ -50,7 +50,7 @@ function handleValidation(regEx, str){
   if(!validate(regEx, str.value)){
     if(!inputContainer.classList.contains('invalid')){
       inputContainer.classList.add('invalid');
-      inputContainer.children[1].src='images/red-cross.svg';
+      inputContainer.children[1].src = "./assets/icons/red-cross.svg";
       let p = document.createElement('p');
       p.className='error';
       p.innerText='Попробуйте еще раз';
@@ -232,7 +232,7 @@ let goUp = document.querySelector('.up');
 let goDown = document.querySelector('.down');
 
 let framesContent = [
-  '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>','<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу','<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽'
+  '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>','<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу','<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽'
 ]
 function renderFrames(arr){
   frames.innerHTML = '';

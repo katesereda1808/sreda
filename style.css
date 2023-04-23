@@ -249,7 +249,7 @@ footer .social{
     justify-content: space-between;
 }
 .arrow{
-    background: url(./images/arrow.svg);
+    background: url(./assets/icons/arrow.svg);
     display: block;
     height: 24px;
     width: 24px;
@@ -516,19 +516,19 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     display: none;
 }
 .yandex{
-    background: url(./images/yandex.svg);
+    background: url(./assets/icons/yandex.svg);
     display: block;
     width: 24px;
     height: 24px;
 }
 .youtube{
-    background: url(./images/youtube.svg);
+    background: url(./assets/icons/youtube.svg);
     display: block;
     width: 24px;
     height: 24px;
 }
 .vk{
-    background: url(./images/vk.svg);
+    background: url(./assets/icons/vk.svg);
     display: block;
     width: 24px;
     height: 24px;
@@ -1094,7 +1094,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         width: 520px;
     }
     .chevron{
-        background: url(./images/chevron.svg);
+        background: url(./assets/icons/chevron.svg);
         background-repeat: no-repeat;
         background-size: 100%;
         width: 12px;
@@ -1107,7 +1107,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     } */
     .chevron:hover{
         opacity: 0.6;
-        /* background: url(./images/chevron_hover.svg); */
+        /* background: url(./assets/icons/chevron_hover.svg); */
         /* background-repeat: no-repeat;
         background-size: 100%;
         width: 12px;
