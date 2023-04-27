@@ -313,13 +313,17 @@ footer .social{
     display: flex;
     justify-content: space-between;
 }
-.block4__text{
+.services{
+    width: 36.063vw;
+}
+
+.text-slider{
     padding-left: 60px;
     margin-top: -25px;
     display: flex;
-}
-.services{
-    width: 36.063vw;
+    overflow: hidden;
+        /* position: relative; */
+    height: 444px;
 }
 .frames{
     display: flex;
@@ -331,6 +335,7 @@ footer .social{
     color: #A1A1A1;
     padding-bottom: 22px;
     padding-top: 25px;
+    height: 214px;
 }
 .frame__title{
     font-size: 28px;
@@ -338,7 +343,7 @@ footer .social{
     letter-spacing: 1px;
     margin-bottom: 17px;
 }
-.block4__text .underline{
+.text-slider .underline{
     color: #FFFFFF;
     border-bottom: 2px solid #FFFFFF;
     border-top: 2px solid #FFFFFF;
@@ -1082,7 +1087,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .frame__title{
         margin-bottom: 20px;
     }
-    .block4__text {
+    .text-slider {
         padding-left: 0px;
         margin-top: 27px;
         flex-direction: row;

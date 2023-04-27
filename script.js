@@ -91,182 +91,232 @@ function onSubmit(e){
 
 
 if(document.querySelector('.slider__content')){
-  let slider_content = document.querySelector('.slider__content');
-  let dot_container = document.querySelector('.dots');
-  let dots = document.getElementsByClassName('dot');
+  let slider_content = document.querySelector(".slider__content");
+  let dot_container = document.querySelector(".dots");
+  let dots = document.getElementsByClassName("dot");
 
   function addDots() {
-    dot_container.innerHTML = '';
+    dot_container.innerHTML = "";
     for (let i = 0; i < slider_content.children.length; i++) {
-      let div = document.createElement('div');
-      div.className = 'dot';
+      let div = document.createElement("div");
+      div.className = "dot";
       dot_container.appendChild(div);
-    };
-    let dots = document.getElementsByClassName('dot');
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].addEventListener('click', 
-      ()=>showSlides(i)
-      )
     }
-  };
-
+    let dots = document.getElementsByClassName("dot");
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].addEventListener("click", () => showSlides(i));
+    }
+  }
 
   addDots(slider_content.children, showSlides);
-  let slides = document.getElementsByClassName('slide');
+  let slides = document.getElementsByClassName("slide");
 
-function showSlides(n){
-  if (n > slides.length-1) {n = 0}    
-  if (n < 0) {
-    n = slides.length-1;
-  }
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
-    slides[i].classList.remove('shown');
-  }
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.remove('dot_active');
-  }
-  slides[n].style.display = 'block';
-  slides[n].classList.add('shown');
-  dots[n].classList.add('dot_active');
-}
-
-let chevron_left = document.querySelector('.direction_left');
-let chevron_right = document.querySelector('.direction_right');
-
-function findSlide() {
-  let shown = slider_content.querySelector('.shown');
-  let slidesArr = Array.from(slides);
-  return(slidesArr.indexOf(shown));
-}
-
-chevron_left.addEventListener('click', ()=>showSlides(findSlide()-1));
-chevron_right.addEventListener('click', ()=>showSlides(findSlide()+1));
-
-let floor19 = document.querySelector('.floor19');
-let floor20 = document.querySelector('.floor20');
-
-
-
-function getWidth(){
-  let width = document.documentElement.clientWidth;
-  if(width<=900){
-    showSlides(0);
-
-    let floor19 = document.querySelector('.floor19_mobile');
-    let floor20 = document.querySelector('.floor20_mobile');
-    floor19.addEventListener('click', (e)=>{
-      e.preventDefault();
-      changeSlidesSet(slider_content, arr19);
-    });
-    floor20.addEventListener('click', (e)=>{
-      e.preventDefault();
-      changeSlidesSet(slider_content, arr20);
-    });
-    return 'mobile';
-  } else {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'block';
+  function showSlides(n) {
+    if (n > slides.length - 1) {
+      n = 0;
     }
-    return 'desktop';
+    if (n < 0) {
+      n = slides.length - 1;
+    }
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      slides[i].classList.remove("shown");
+    }
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].classList.remove("dot_active");
+    }
+    slides[n].style.display = "block";
+    slides[n].classList.add("shown");
+    dots[n].classList.add("dot_active");
   }
-};
-getWidth();
-window.addEventListener('resize', getWidth);
 
-let arr19 = [
-  "./assets/images/slider_1.jpg",
-  "./assets/images/slider_2.jpg",
-  "./assets/images/slider_3.jpg",
-];
-let arr20 = [
-  "./assets/images/1132 (69).JPG",
-  "./assets/images/1132 (45).JPG",
-  "./assets/images/1132 (37).JPG",
-  "./assets/images/1132 (25).JPG",
-  "./assets/images/1132 (18).JPG",
-];
+  let chevron_left = document.querySelector(".direction_left");
+  let chevron_right = document.querySelector(".direction_right");
 
-function changeSlidesSet(place, arr) {
-  place.innerHTML='';
-  for (let i = 0; i < arr.length; i++) {
-    place.innerHTML+=`
+  function findSlide() {
+    let shown = slider_content.querySelector(".shown");
+    let slidesArr = Array.from(slides);
+    return slidesArr.indexOf(shown);
+  }
+
+  chevron_left.addEventListener("click", () => showSlides(findSlide() - 1));
+  chevron_right.addEventListener("click", () => showSlides(findSlide() + 1));
+
+  let floor19 = document.querySelector(".floor19");
+  let floor20 = document.querySelector(".floor20");
+
+  function getWidth() {
+    let width = document.documentElement.clientWidth;
+    if (width <= 900) {
+      showSlides(0);
+
+      let floor19 = document.querySelector(".floor19_mobile");
+      let floor20 = document.querySelector(".floor20_mobile");
+      floor19.addEventListener("click", (e) => {
+        e.preventDefault();
+        changeSlidesSet(slider_content, arr19);
+      });
+      floor20.addEventListener("click", (e) => {
+        e.preventDefault();
+        changeSlidesSet(slider_content, arr20);
+      });
+      return "mobile";
+    } else {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "block";
+      }
+      return "desktop";
+    }
+  }
+  getWidth();
+  window.addEventListener("resize", getWidth);
+
+  let arr19 = [
+    "./assets/images/slider_1.jpg",
+    "./assets/images/slider_2.jpg",
+    "./assets/images/slider_3.jpg",
+  ];
+  let arr20 = [
+    "./assets/images/1132 (69).JPG",
+    "./assets/images/1132 (45).JPG",
+    "./assets/images/1132 (37).JPG",
+    "./assets/images/1132 (25).JPG",
+    "./assets/images/1132 (18).JPG",
+  ];
+
+  function changeSlidesSet(place, arr) {
+    place.innerHTML = "";
+    for (let i = 0; i < arr.length; i++) {
+      place.innerHTML += `
     <div class="slide">
       <img class="img" src="${arr[i]}">
-    </div>`
-  };
-  addDots();
-  if(getWidth()=='mobile'){
-    showSlides(0);
-  }
-}
-floor19.addEventListener('click', (e)=>{
-  e.preventDefault();
-  changeSlidesSet(slider_content, arr19);
-});
-floor20.addEventListener('click', (e)=>{
-  e.preventDefault();
-  changeSlidesSet(slider_content, arr20);
-});
-
-let arrow_right = document.getElementById('arrow_right');
-let arrow_left = document.getElementById('arrow_left');
-function scrollSlides(n) {
-  n>0?
-  slider_content.scrollLeft+=300:
-  slider_content.scrollLeft-=300;
-}
-
-arrow_right.addEventListener('click', (e)=>{
-  e.preventDefault();
-  scrollSlides(1);
-});
-arrow_left.addEventListener('click', (e)=>{
-  e.preventDefault();
-  scrollSlides(-1);
-});
-
-// слайдер для текста на главной странице
-let frames = document.querySelector('.frames');
-let goUp = document.querySelector('.up');
-let goDown = document.querySelector('.down');
-
-let framesContent = [
-  '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>','<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу','<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽'
-]
-function renderFrames(arr){
-  frames.innerHTML = '';
-  for (let i = 0; i < arr.length; i++) {
-    let frame = document.createElement('div');
-    frame.innerHTML = arr[i];
-    if(i==1){
-      frame.className = 'frame underline';
-    } else {
-      frame.className = 'frame';
+    </div>`;
     }
-    frames.appendChild(frame);
+    addDots();
+    if (getWidth() == "mobile") {
+      showSlides(0);
+    }
   }
-};
+  floor19.addEventListener("click", (e) => {
+    e.preventDefault();
+    changeSlidesSet(slider_content, arr19);
+  });
+  floor20.addEventListener("click", (e) => {
+    e.preventDefault();
+    changeSlidesSet(slider_content, arr20);
+  });
 
-function scrollFrames(direction, arr){
-  if(direction=='up'){
-    [arr[0], arr[1], arr[2]]=[arr[2], arr[0], arr[1]];
-  } else {
-    [arr[0], arr[1], arr[2]]=[arr[1], arr[2], arr[0]];
+  let arrow_right = document.getElementById("arrow_right");
+  let arrow_left = document.getElementById("arrow_left");
+  function scrollSlides(n) {
+    n > 0
+      ? (slider_content.scrollLeft += 300)
+      : (slider_content.scrollLeft -= 300);
   }
-  return arr;
-};
 
-renderFrames(framesContent);
+  arrow_right.addEventListener("click", (e) => {
+    e.preventDefault();
+    scrollSlides(1);
+  });
+  arrow_left.addEventListener("click", (e) => {
+    e.preventDefault();
+    scrollSlides(-1);
+  });
 
-goUp.addEventListener('click',(e)=>{
-  e.preventDefault();
-  renderFrames(scrollFrames('up', framesContent))
-});
-goDown.addEventListener('click',(e)=>{
-  e.preventDefault();
-  renderFrames(scrollFrames('down', framesContent))
-});
+  // слайдер для текста на главной странице
+  // надо сделать текущий слайд на 1 уровень ниже
+  let carousel = document.querySelector(".frames");
+  let frames = document.querySelectorAll(".frame");
+  let goUp = document.querySelector(".up");
+  let goDown = document.querySelector(".down");
+  let counter = 0;
+  // frames box 444px
+  // frame height: 214px;
+  const size = 214;
+
+  function initOffset(offset) {
+    carousel.style.transform = "translateY(" + -offset * counter + "px)";
+    console.log("offset " + -offset * counter);
+  }
+
+  function scrollFrames(direction) {
+    carousel.style.transition = "transform 0.7s linear";
+    if (direction === "up") {
+      counter--;
+    } else {
+      counter++;
+    }
+    carousel.style.transform = "translateY(" + -size * counter + "px)";
+    console.log(counter, +-size * counter);
+  }
+
+  // initOffset();
+  
+  scrollFrames("down");
+
+  goDown.addEventListener("click", () => {
+    scrollFrames("down");
+  });
+  goUp.addEventListener("click", () => {
+    scrollFrames("up");
+  });
+
+  carousel.addEventListener("transitionend", () => {
+    console.log(frames[counter]);
+    if (frames[counter].id === "lastClone") {
+      console.log("go up");
+      carousel.style.transition = "none";
+      counter = frames.length - 2;
+      initOffset(186);
+      // carousel.style.transform = "translateY(" + -size * counter + "px)";
+    }
+    if (frames[counter].id === "firstClone") {
+      carousel.style.transition = "none";
+      counter = frames.length - counter;
+      carousel.style.transform = "translateY(" + -size * counter + "px)";
+      initOffset(240);
+    }
+  });
+  // let frames = document.querySelector('.frames');
+  // let goUp = document.querySelector('.up');
+  // let goDown = document.querySelector('.down');
+
+  // let framesContent = [
+  //   '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>','<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу','<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽'
+  // ]
+  // function renderFrames(arr){
+  //   frames.innerHTML = '';
+  //   for (let i = 0; i < arr.length; i++) {
+  //     let frame = document.createElement('div');
+  //     frame.innerHTML = arr[i];
+  //     if(i==1){
+  //       frame.className = 'frame underline';
+  //     } else {
+  //       frame.className = 'frame';
+  //     }
+  //     frames.appendChild(frame);
+  //   }
+  // };
+
+  // function scrollFrames(direction, arr){
+  //   if(direction=='up'){
+  //     [arr[0], arr[1], arr[2]]=[arr[2], arr[0], arr[1]];
+  //   } else {
+  //     [arr[0], arr[1], arr[2]]=[arr[1], arr[2], arr[0]];
+  //   }
+  //   return arr;
+  // };
+
+  // renderFrames(framesContent);
+
+  // goUp.addEventListener('click',(e)=>{
+  //   e.preventDefault();
+  //   renderFrames(scrollFrames('up', framesContent))
+  // });
+  // goDown.addEventListener('click',(e)=>{
+  //   e.preventDefault();
+  //   renderFrames(scrollFrames('down', framesContent))
+  // });
 }
 
 if(document.querySelector('.tariffs_slider')){
