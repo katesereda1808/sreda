@@ -227,15 +227,14 @@ if(document.querySelector('.slider__content')){
   let frames = document.querySelector('.frames');
   let goUp = document.querySelector('.up');
   let goDown = document.querySelector('.down');
-  let framesArr = frames.children;
-  console.log(framesArr)
-  let framesContent = [
-    '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>',
-    '<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу',
-    '<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽',
-    '<div class="frame__title">04 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽',
-    '<div class="frame__title">05 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽',
-  ];
+  let framesNodes = frames.children;
+  let framesContent = [];
+
+  for (let i = 0; i < framesNodes.length; i++) {
+    const node = framesNodes[i];
+    framesContent.push(node.innerHTML)
+  }
+
   function renderFrames(arr){
     frames.innerHTML = '';
     for (let i = 0; i < arr.length; i++) {
@@ -250,7 +249,6 @@ if(document.querySelector('.slider__content')){
     }
   };
 
-  // 
   function scrollFrames(direction, arr){
     if(direction=='up'){
       arr.unshift(arr[arr.length-1]);

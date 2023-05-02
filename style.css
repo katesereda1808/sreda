@@ -337,7 +337,7 @@ footer .social{
     color: #A1A1A1;
     padding-bottom: 22px;
     padding-top: 25px;
-    height: 214px;
+    /* height: 214px; */
 }
 .frame__title{
     font-size: 28px;
