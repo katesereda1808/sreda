@@ -223,100 +223,56 @@ if(document.querySelector('.slider__content')){
     scrollSlides(-1);
   });
 
-  // слайдер для текста на главной странице
-  // надо сделать текущий слайд на 1 уровень ниже
-  let carousel = document.querySelector(".frames");
-  let frames = document.querySelectorAll(".frame");
-  let goUp = document.querySelector(".up");
-  let goDown = document.querySelector(".down");
-  let counter = 0;
-  // frames box 444px
-  // frame height: 214px;
-  const size = 214;
-
-  function initOffset(offset) {
-    carousel.style.transform = "translateY(" + -offset * counter + "px)";
-    console.log("offset " + -offset * counter);
-  }
-
-  function scrollFrames(direction) {
-    carousel.style.transition = "transform 0.7s linear";
-    if (direction === "up") {
-      counter--;
-    } else {
-      counter++;
-    }
-    carousel.style.transform = "translateY(" + -size * counter + "px)";
-    console.log(counter, +-size * counter);
-  }
-
-  // initOffset();
   
-  scrollFrames("down");
-
-  goDown.addEventListener("click", () => {
-    scrollFrames("down");
-  });
-  goUp.addEventListener("click", () => {
-    scrollFrames("up");
-  });
-
-  carousel.addEventListener("transitionend", () => {
-    console.log(frames[counter]);
-    if (frames[counter].id === "lastClone") {
-      console.log("go up");
-      carousel.style.transition = "none";
-      counter = frames.length - 2;
-      initOffset(186);
-      // carousel.style.transform = "translateY(" + -size * counter + "px)";
+  let frames = document.querySelector('.frames');
+  let goUp = document.querySelector('.up');
+  let goDown = document.querySelector('.down');
+  let framesArr = frames.children;
+  console.log(framesArr)
+  let framesContent = [
+    '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>',
+    '<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу',
+    '<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽',
+    '<div class="frame__title">04 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽',
+    '<div class="frame__title">05 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽',
+  ];
+  function renderFrames(arr){
+    frames.innerHTML = '';
+    for (let i = 0; i < arr.length; i++) {
+      let frame = document.createElement('div');
+      frame.innerHTML = arr[i];
+      if(i==1){
+        frame.className = 'frame underline';
+      } else {
+        frame.className = 'frame';
+      }
+      frames.appendChild(frame);
     }
-    if (frames[counter].id === "firstClone") {
-      carousel.style.transition = "none";
-      counter = frames.length - counter;
-      carousel.style.transform = "translateY(" + -size * counter + "px)";
-      initOffset(240);
+  };
+
+  // 
+  function scrollFrames(direction, arr){
+    if(direction=='up'){
+      arr.unshift(arr[arr.length-1]);
+      arr.pop();
+      
+    } else {
+      arr.push(arr[0]);
+      arr.shift();
     }
+    return arr;
+  };
+
+  renderFrames(framesContent);
+
+  goUp.addEventListener('click',(e)=>{
+    e.preventDefault();
+    renderFrames(scrollFrames('up', framesContent))
   });
-  // let frames = document.querySelector('.frames');
-  // let goUp = document.querySelector('.up');
-  // let goDown = document.querySelector('.down');
-
-  // let framesContent = [
-  //   '<div class="frame__title">01 Услуги ресепшн</div><ul><li>Обработка почтовой корреспонденции</li><li>Обработка телефонных звонков</li><li>Курьерские и почтовые услуги</li><li>Администрирование встреч и др. услуги</li></ul>','<div class="frame__title">02 ИТ, бухгалтерская и юридическая поддержка</div>Тариф по запросу','<div class="frame__title">03 Переговорная комната</div>Аренда переговорной (до 5 чел) на 1 час - 1 800 ₽ Аренда переговорной (до 10 чел) на 1 час - 2 500 ₽ Аренда переговорной (до 5 чел) на 1 день - 15 000 ₽'
-  // ]
-  // function renderFrames(arr){
-  //   frames.innerHTML = '';
-  //   for (let i = 0; i < arr.length; i++) {
-  //     let frame = document.createElement('div');
-  //     frame.innerHTML = arr[i];
-  //     if(i==1){
-  //       frame.className = 'frame underline';
-  //     } else {
-  //       frame.className = 'frame';
-  //     }
-  //     frames.appendChild(frame);
-  //   }
-  // };
-
-  // function scrollFrames(direction, arr){
-  //   if(direction=='up'){
-  //     [arr[0], arr[1], arr[2]]=[arr[2], arr[0], arr[1]];
-  //   } else {
-  //     [arr[0], arr[1], arr[2]]=[arr[1], arr[2], arr[0]];
-  //   }
-  //   return arr;
-  // };
-
-  // renderFrames(framesContent);
-
-  // goUp.addEventListener('click',(e)=>{
-  //   e.preventDefault();
-  //   renderFrames(scrollFrames('up', framesContent))
-  // });
-  // goDown.addEventListener('click',(e)=>{
-  //   e.preventDefault();
-  //   renderFrames(scrollFrames('down', framesContent))
-  // });
+  goDown.addEventListener('click',(e)=>{
+    e.preventDefault();
+    renderFrames(scrollFrames('down', framesContent))
+  });
 }
 
 if(document.querySelector('.tariffs_slider')){

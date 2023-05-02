@@ -322,8 +322,10 @@ footer .social{
     margin-top: -25px;
     display: flex;
     overflow: hidden;
+    /* background-color: #3D3D3D; */
         /* position: relative; */
     height: 444px;
+
 }
 .frames{
     display: flex;
